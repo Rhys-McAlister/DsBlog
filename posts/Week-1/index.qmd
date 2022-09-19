@@ -1,0 +1,13 @@
+---
+title: "Week 1"
+author: "Rhys McAlister"
+date: "2022-09-19"
+categories: [news, code, analysis]
+image: "image.jpg"
+---
+
+This is a post with executable code.
+
+```{r}
+1 + 1
+```
