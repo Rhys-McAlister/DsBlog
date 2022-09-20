@@ -4,10 +4,13 @@ author: "Rhys McAlister"
 date: "2022-09-19"
 categories: [news, code, analysis]
 image: "image.jpg"
+bibliography: references.bib
 ---
 
 This is a post with executable code.
 
-```{r}
+```{python}
 1 + 1
 ```
+
+@neininger1998

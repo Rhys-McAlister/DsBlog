@@ -1,14 +1,11 @@
 {
-  "hash": "d20f01a35f773d2e381ee5ab742f6bd0",
+  "hash": "866123deaefe69aa1f55c9817d1b10b6",
   "result": {
-    "markdown": "---\ntitle: \"Week 1\"\nauthor: \"Rhys McAlister\"\ndate: \"2022-09-19\"\ncategories: [news, code, analysis]\nimage: \"image.jpg\"\n---\n\n\nThis is a post with executable code.\n\n\n::: {.cell}\n\n```{.r .cell-code}\n1 + 1\n```\n\n::: {.cell-output .cell-output-stdout}\n```\n[1] 2\n```\n:::\n:::\n",
-    "supporting": [],
-    "filters": [
-      "rmarkdown/pagebreak.lua"
+    "markdown": "---\ntitle: \"Week 1\"\nauthor: \"Rhys McAlister\"\ndate: \"2022-09-19\"\ncategories: [news, code, analysis]\nimage: \"image.jpg\"\nbibliography: references.bib\n---\n\nThis is a post with executable code.\n\n::: {.cell execution_count=1}\n``` {.python .cell-code}\n1 + 1\n```\n\n::: {.cell-output .cell-output-display execution_count=1}\n```\n2\n```\n:::\n:::\n\n\n@neininger1998\n\n",
+    "supporting": [
+      "index_files"
     ],
-    "includes": {},
-    "engineDependencies": {},
-    "preserve": {},
-    "postProcess": true
+    "filters": [],
+    "includes": {}
   }
 }
