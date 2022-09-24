@@ -33,12 +33,13 @@ If one did intend to make a prediction regarding the lung capacity of a worker a
 
 Simple linear regression provides an estimate of how much the response variable, Y will change when the predictor variable, X changes by a specified amount. This regression relationship is given by:
 
-Y=b0+b1XY = b_0 + b_1 XY=b0​+b1​X
+$Y=b_0+b_1X$
 
 Where;
 
-b0b_0b0​: The intercept
-b1b_1b1​: Slope
+$b_0$ = Intercept
+
+$b_1$ = Slope
 
 ```{python}
 predictors = ['Exposure']
@@ -61,7 +62,7 @@ The regression line is the plot above indicates the 'fitted values' or the predi
 
 This concept of residual values underlines the manner in which our linear model is fit to the data set. The regression line itself is defined as the estimate that minimises the sum of the squared residual values, this is known as the residual sum of squares (RSS). This method of minimising the RSS is also referred to as least squares regression or ordinary least squares regression.
 
-Regression analysis is primarily used to bring light to a supposed linear relationship between a set of predictor variables and a response variable. Our primary goal is to understand this association and explain it using the data one has. In the case of this dataset is can be seen that exposure to cotton dust has a deleterious effect on the lung capacity of workers and predictions of this effect can be quantified using the derived regression coefficient (b^\hat{b}b\^).
+Regression analysis is primarily used to bring light to a supposed linear relationship between a set of predictor variables and a response variable. Our primary goal is to understand this association and explain it using the data one has. In the case of this dataset is can be seen that exposure to cotton dust has a deleterious effect on the lung capacity of workers and predictions of this effect can be quantified using the derived regression coefficient ($\hat{b}$).
 
 References:
 
