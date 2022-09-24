@@ -1,5 +1,5 @@
 ---
-title: "Week 1"
+title: "Simple Linear Regression"
 author: "Rhys McAlister"
 date: "2022-09-19"
 categories: [news, code, analysis]
