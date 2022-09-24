@@ -9,7 +9,7 @@
 <meta name="author" content="Rhys McAlister">
 <meta name="dcterms.date" content="2022-09-19">
 
-<title>Working notes - Week 1</title>
+<title>Working notes - Simple Linear Regression</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -80,25 +80,6 @@ code span.st { color: #4070a0; } /* String */
 code span.va { color: #19177c; } /* Variable */
 code span.vs { color: #4070a0; } /* VerbatimString */
 code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
-div.csl-bib-body { }
-div.csl-entry {
-  clear: both;
-}
-.hanging div.csl-entry {
-  margin-left:2em;
-  text-indent:-2em;
-}
-div.csl-left-margin {
-  min-width:2em;
-  float:left;
-}
-div.csl-right-inline {
-  margin-left:2em;
-  padding-left:1em;
-}
-div.csl-indent {
-  margin-left: 2em;
-}
 </style>
 
 
@@ -179,7 +160,7 @@ div.csl-indent {
 <header id="title-block-header" class="quarto-title-block default page-columns page-full">
   <div class="quarto-title-banner page-columns page-full">
     <div class="quarto-title column-body">
-      <h1 class="title">Week 1</h1>
+      <h1 class="title">Simple Linear Regression</h1>
                                 <div class="quarto-categories">
                 <div class="quarto-category">news</div>
                 <div class="quarto-category">code</div>
@@ -218,23 +199,65 @@ div.csl-indent {
 
 
 
-<p>This is a post with executable code.</p>
 <div class="cell" data-execution_count="1">
-<div class="sourceCode cell-code" id="cb1"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="dv">1</span> <span class="op">+</span> <span class="dv">1</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-display" data-execution_count="1">
-<pre><code>2</code></pre>
+<div class="sourceCode cell-code" id="cb1"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> pandas <span class="im">as</span> pd</span>
+<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> numpy <span class="im">as</span> np</span>
+<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> matplotlib.pyplot <span class="im">as</span> plt</span>
+<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> seaborn <span class="im">as</span> sns</span>
+<span id="cb1-5"><a href="#cb1-5" aria-hidden="true" tabindex="-1"></a>sns.<span class="bu">set</span>(style<span class="op">=</span><span class="st">'darkgrid'</span>)</span>
+<span id="cb1-6"><a href="#cb1-6" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> sklearn.linear_model <span class="im">import</span> LinearRegression</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<p><em>Note: Information in this article is derived from the book ‘Practical Statistics for Data Scientists’.</em></p>
+<p>Simple linear regression can be used to derive a model of the relationship present between the magnitude of one variable and that of another.</p>
+<p>The dataset below contains records of the numbers of years a given worker has been exposed to cotton dust (‘Exposure’) versus a metric used to describe ones lung capacity (peak expiratory flow rate, ‘PEFR’).</p>
+<p>From this graph it is hard to judge the relationship between these two variables by eye, especially if one was intending to make a prediction from the association of the two variables.</p>
+<div class="cell" data-execution_count="2">
+<div class="sourceCode cell-code" id="cb2"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a>lung <span class="op">=</span> pd.read_csv(<span class="st">'LungDisease.csv'</span>)</span>
+<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a>sns.scatterplot(data<span class="op">=</span>lung, x<span class="op">=</span><span class="st">'Exposure'</span>,y<span class="op">=</span><span class="st">'PEFR'</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display" data-execution_count="2">
+<pre><code>&lt;AxesSubplot:xlabel='Exposure', ylabel='PEFR'&gt;</code></pre>
+</div>
+<div class="cell-output cell-output-display">
+<p><img src="index_files/figure-html/cell-3-output-2.png" width="597" height="428"></p>
 </div>
 </div>
-<p><span class="citation" data-cites="neininger1998">Neininger et al. (<a href="#ref-neininger1998" role="doc-biblioref">1998</a>)</span></p>
-
-
-
-
-<div id="quarto-appendix" class="default"><section class="quarto-appendix-contents" role="doc-bibliography"><h2 class="anchored quarto-appendix-heading">References</h2><div id="refs" class="references csl-bib-body hanging-indent" role="doc-bibliography">
-<div id="ref-neininger1998" class="csl-entry" role="doc-biblioentry">
-Neininger, N., M. Guélin, H. Ungerechts, R. Lucas, and R. Wielebinski. 1998. <span>“Carbon Monoxide Emission as a Precise Tracer of Molecular Gas in the Andromeda Galaxy.”</span> <em>Nature</em> 395 (6705): 871–73. <a href="https://doi.org/10.1038/27612">https://doi.org/10.1038/27612</a>.
+<p>If one did intend to make a prediction regarding the lung capacity of a worker after some defined period of exposure, a linear regression model would be appropriate.</p>
+<p>Simple linear regression provides an estimate of how much the response variable, Y will change when the predictor variable, X changes by a specified amount. This regression relationship is given by:</p>
+<p>Y=b0+b1XY = b_0 + b_1 XY=b0​+b1​X</p>
+<p>Where;</p>
+<p>b0b_0b0​: The intercept b1b_1b1​: Slope</p>
+<div class="cell" data-execution_count="3">
+<div class="sourceCode cell-code" id="cb4"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a>predictors <span class="op">=</span> [<span class="st">'Exposure'</span>]</span>
+<span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a>outcome <span class="op">=</span> <span class="st">'PEFR'</span></span>
+<span id="cb4-3"><a href="#cb4-3" aria-hidden="true" tabindex="-1"></a>lm <span class="op">=</span> LinearRegression()</span>
+<span id="cb4-4"><a href="#cb4-4" aria-hidden="true" tabindex="-1"></a>lm.fit(lung[predictors], lung[outcome])</span>
+<span id="cb4-5"><a href="#cb4-5" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="ss">f'Intercept: </span><span class="sc">{</span>lm<span class="sc">.</span>intercept_<span class="sc">:.3f}</span><span class="ss">'</span>)</span>
+<span id="cb4-6"><a href="#cb4-6" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="ss">f'Coefficient Exposure: </span><span class="sc">{</span>lm<span class="sc">.</span>coef_[<span class="dv">0</span>]<span class="sc">:.3f}</span><span class="ss">'</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>Intercept: 424.583
+Coefficient Exposure: -4.185</code></pre>
 </div>
-</div></section></div></main> <!-- /main -->
+</div>
+<p>The intercept can be interpreted in this context as the predicted lung capacity or ‘PEFR’ of a worker who has had zero years of exposure to cotton dust. The regression coefficient or slope can be interpreted as the change in lung capacity for each year of exposure to cotton dust.</p>
+<p>So it can be seen that a worker who has yet to be exposed to cotton dust is predicted to have a PEFR value of 424.583 and for every year of exposure to cotton dust that value is expected to decrease by 4.185.</p>
+<div class="cell" data-execution_count="4">
+<div class="sourceCode cell-code" id="cb6"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a>sns.regplot(data<span class="op">=</span>lung,x<span class="op">=</span><span class="st">'Exposure'</span>, y<span class="op">=</span><span class="st">'PEFR'</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display" data-execution_count="4">
+<pre><code>&lt;AxesSubplot:xlabel='Exposure', ylabel='PEFR'&gt;</code></pre>
+</div>
+<div class="cell-output cell-output-display">
+<p><img src="index_files/figure-html/cell-5-output-2.png" width="597" height="428"></p>
+</div>
+</div>
+<p>The regression line is the plot above indicates the ‘fitted values’ or the predictions derived from the linear regression model. It can be seen that generally the data doesn’t fall exactly on the regression line and this deviation can be quantified as the ‘residuals’.</p>
+<p>This concept of residual values underlines the manner in which our linear model is fit to the data set. The regression line itself is defined as the estimate that minimises the sum of the squared residual values, this is known as the residual sum of squares (RSS). This method of minimising the RSS is also referred to as least squares regression or ordinary least squares regression.</p>
+<p>Regression analysis is primarily used to bring light to a supposed linear relationship between a set of predictor variables and a response variable. Our primary goal is to understand this association and explain it using the data one has. In the case of this dataset is can be seen that exposure to cotton dust has a deleterious effect on the lung capacity of workers and predictions of this effect can be quantified using the derived regression coefficient (b^b^).</p>
+<p>References:</p>
+<p>Bruce, Peter, Andrew Bruce, and Peter Gedeck. Practical statistics for data scientists: 50+ essential concepts using R and Python. O’Reilly Media, 2020.</p>
+
+
+
+</main> <!-- /main -->
 <script id="quarto-html-after-body" type="application/javascript">
 window.document.addEventListener("DOMContentLoaded", function (event) {
   const toggleBodyColorMode = (bsSheetEl) => {
