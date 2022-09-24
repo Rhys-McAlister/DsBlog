@@ -2,7 +2,7 @@
 title: "Simple Linear Regression"
 author: "Rhys McAlister"
 date: "2022-09-19"
-categories: [news, code, analysis]
+categories: [news,analysis]
 image: "image.jpg"
 bibliography: references.bib
 ---
