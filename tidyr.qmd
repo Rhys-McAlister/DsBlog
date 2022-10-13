@@ -1,0 +1,110 @@
+---
+title: "dplyr and tidyr"
+author: "Rhys McAlister"
+editor: visual
+---
+
+This article is a summary of a collection of [videos](https://youtu.be/Zc_ufg4uW4U "Data Manipulation Tools: dplyr") produced by the Rstudio team discussing the data manipulation tools dplyr and tidyr. These are my own notes on these videos that I am publishing for reference for myself and others.
+
+Ways in which we can access information
+
+1.  Extracting existing variables: select()
+
+2.  Extract existing observations: filter()
+
+3.  Drive new variables from existing ones: mutate()
+
+4.  Change the unit of analysis: summarise()
+
+select()
+
+This function allows for the subsection of a smaller number of columns from a larger dataframe.
+
+```{r}
+library(EDAWR)
+library(dplyr)
+library(tidyr)
+library(knitr)
+df = storms
+subset = select(df, name, pressure)
+kable((head(subset)))
+```
+
+Dropping a column.
+
+```{r}
+select(storms, -name)
+```
+
+Obtaining a range of variables.
+
+```{r}
+select(storms, wind:year)
+```
+
+filter()
+
+Filter out observations using logical tests.
+
+```{r}
+filter(storms, wind >= 50, name %in% c('Alberto', 'Alex', 'Allison'))
+```
+
+mutate()
+
+Mutate() allows you to generate new variables from existing ones.
+
+```{r}
+df = mutate(storms, ratio = pressure/wind)
+select(df, name, ratio)
+```
+
+summarise()
+
+Calculates summary statistics from a dataframe.
+
+```{r}
+pollution %>% summarise(median = median(amount), variance = var(amount))
+```
+
+arrange()
+
+Arranges the order of the rows within a dataframe based on the values within a column.
+
+```{r}
+arrange(storms, wind)
+arrange(storms, desc(wind))
+```
+
+Adding additional variables into the arrange function will use those as tiebreakers between observations that have the same value.
+
+```{r}
+arrange(storms, wind,year)
+```
+
+Pipe Operator
+
+```{r}
+storms %>%
+  filter(wind>=50) %>%
+  select(name, pressure)
+```
+
+```{r}
+storms %>%
+  mutate(ratio = pressure/wind) %>%
+  select(name, ratio) 
+```
+
+group_by() + summarise()
+
+```{r}
+grouped_pollution = pollution %>% group_by(city) %>% summarise(mean = mean(amount), sum = sum(amount), n = n())
+kable(grouped_pollution)
+
+```
+
+```{r}
+library(gtsummary)
+grouped_pollution %>% select(city,mean,sum) %>% tbl_summary()
+```

@@ -1,0 +1,1069 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
+
+<meta charset="utf-8">
+<meta name="generator" content="quarto-1.0.35">
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+
+<meta name="author" content="Rhys McAlister">
+
+<title>Working notes - dplyr and tidyr</title>
+<style>
+code{white-space: pre-wrap;}
+span.smallcaps{font-variant: small-caps;}
+span.underline{text-decoration: underline;}
+div.column{display: inline-block; vertical-align: top; width: 50%;}
+div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+ul.task-list{list-style: none;}
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+    color: #aaaaaa;
+  }
+pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
+code span.al { color: #ff0000; font-weight: bold; } /* Alert */
+code span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
+code span.at { color: #7d9029; } /* Attribute */
+code span.bn { color: #40a070; } /* BaseN */
+code span.bu { } /* BuiltIn */
+code span.cf { color: #007020; font-weight: bold; } /* ControlFlow */
+code span.ch { color: #4070a0; } /* Char */
+code span.cn { color: #880000; } /* Constant */
+code span.co { color: #60a0b0; font-style: italic; } /* Comment */
+code span.cv { color: #60a0b0; font-weight: bold; font-style: italic; } /* CommentVar */
+code span.do { color: #ba2121; font-style: italic; } /* Documentation */
+code span.dt { color: #902000; } /* DataType */
+code span.dv { color: #40a070; } /* DecVal */
+code span.er { color: #ff0000; font-weight: bold; } /* Error */
+code span.ex { } /* Extension */
+code span.fl { color: #40a070; } /* Float */
+code span.fu { color: #06287e; } /* Function */
+code span.im { } /* Import */
+code span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
+code span.kw { color: #007020; font-weight: bold; } /* Keyword */
+code span.op { color: #666666; } /* Operator */
+code span.ot { color: #007020; } /* Other */
+code span.pp { color: #bc7a00; } /* Preprocessor */
+code span.sc { color: #4070a0; } /* SpecialChar */
+code span.ss { color: #bb6688; } /* SpecialString */
+code span.st { color: #4070a0; } /* String */
+code span.va { color: #19177c; } /* Variable */
+code span.vs { color: #4070a0; } /* VerbatimString */
+code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
+</style>
+
+
+<script src="site_libs/quarto-nav/quarto-nav.js"></script>
+<script src="site_libs/quarto-nav/headroom.min.js"></script>
+<script src="site_libs/clipboard/clipboard.min.js"></script>
+<script src="site_libs/quarto-search/autocomplete.umd.js"></script>
+<script src="site_libs/quarto-search/fuse.min.js"></script>
+<script src="site_libs/quarto-search/quarto-search.js"></script>
+<meta name="quarto:offset" content="./">
+<script src="site_libs/quarto-html/quarto.js"></script>
+<script src="site_libs/quarto-html/popper.min.js"></script>
+<script src="site_libs/quarto-html/tippy.umd.min.js"></script>
+<script src="site_libs/quarto-html/anchor.min.js"></script>
+<link href="site_libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="site_libs/quarto-html/quarto-syntax-highlighting.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<script src="site_libs/bootstrap/bootstrap.min.js"></script>
+<link href="site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
+<link href="site_libs/bootstrap/bootstrap.min.css" rel="stylesheet" id="quarto-bootstrap" data-mode="light">
+<script id="quarto-search-options" type="application/json">{
+  "location": "navbar",
+  "copy-button": false,
+  "collapse-after": 3,
+  "panel-placement": "end",
+  "type": "overlay",
+  "limit": 20,
+  "language": {
+    "search-no-results-text": "No results",
+    "search-matching-documents-text": "matching documents",
+    "search-copy-link-title": "Copy link to search",
+    "search-hide-matches-text": "Hide additional matches",
+    "search-more-match-text": "more match in this document",
+    "search-more-matches-text": "more matches in this document",
+    "search-clear-button-title": "Clear",
+    "search-detached-cancel-button-title": "Cancel",
+    "search-submit-button-title": "Submit"
+  }
+}</script>
+
+
+<link rel="stylesheet" href="styles.css">
+</head>
+
+<body class="nav-fixed fullcontent">
+
+<div id="quarto-search-results"></div>
+  <header id="quarto-header" class="headroom fixed-top">
+    <nav class="navbar navbar-expand-lg navbar-dark ">
+      <div class="navbar-container container-fluid">
+      <a class="navbar-brand" href="./index.html">
+    <span class="navbar-title">Working notes</span>
+  </a>
+          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse" aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
+  <span class="navbar-toggler-icon"></span>
+</button>
+          <div class="collapse navbar-collapse" id="navbarCollapse">
+            <ul class="navbar-nav navbar-nav-scroll ms-auto">
+  <li class="nav-item">
+    <a class="nav-link" href="./about.html">About</a>
+  </li>  
+  <li class="nav-item compact">
+    <a class="nav-link" href="https://github.com/Rhys-McAlister"><i class="bi bi-github" role="img">
+</i> 
+ </a>
+  </li>  
+  <li class="nav-item compact">
+    <a class="nav-link" href="https://twitter.com/mcalister_rhys"><i class="bi bi-twitter" role="img">
+</i> 
+ </a>
+  </li>  
+</ul>
+              <div id="quarto-search" class="" title="Search"></div>
+          </div> <!-- /navcollapse -->
+      </div> <!-- /container-fluid -->
+    </nav>
+</header>
+<!-- content -->
+<div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article page-navbar">
+<!-- sidebar -->
+<!-- margin-sidebar -->
+    
+<!-- main -->
+<main class="content" id="quarto-document-content">
+
+<header id="title-block-header" class="quarto-title-block default">
+<div class="quarto-title">
+<h1 class="title">dplyr and tidyr</h1>
+</div>
+
+
+
+<div class="quarto-title-meta">
+
+    <div>
+    <div class="quarto-title-meta-heading">Author</div>
+    <div class="quarto-title-meta-contents">
+             <p>Rhys McAlister </p>
+          </div>
+  </div>
+    
+    
+  </div>
+  
+
+</header>
+
+<p>This article is a summary of a collection of <a href="https://youtu.be/Zc_ufg4uW4U" title="Data Manipulation Tools: dplyr">videos</a> produced by the Rstudio team discussing the data manipulation tools dplyr and tidyr. These are my own notes on these videos that I am publishing for reference for myself and others.</p>
+<p>Ways in which we can access information</p>
+<ol type="1">
+<li><p>Extracting existing variables: select()</p></li>
+<li><p>Extract existing observations: filter()</p></li>
+<li><p>Drive new variables from existing ones: mutate()</p></li>
+<li><p>Change the unit of analysis: summarise()</p></li>
+</ol>
+<p>select()</p>
+<p>This function allows for the subsection of a smaller number of columns from a larger dataframe.</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(EDAWR)</span>
+<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(dplyr)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stderr">
+<pre><code>
+Attaching package: 'dplyr'</code></pre>
+</div>
+<div class="cell-output cell-output-stderr">
+<pre><code>The following object is masked from 'package:EDAWR':
+
+    storms</code></pre>
+</div>
+<div class="cell-output cell-output-stderr">
+<pre><code>The following objects are masked from 'package:stats':
+
+    filter, lag</code></pre>
+</div>
+<div class="cell-output cell-output-stderr">
+<pre><code>The following objects are masked from 'package:base':
+
+    intersect, setdiff, setequal, union</code></pre>
+</div>
+<div class="sourceCode cell-code" id="cb6"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(tidyr)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stderr">
+<pre><code>
+Attaching package: 'tidyr'</code></pre>
+</div>
+<div class="cell-output cell-output-stderr">
+<pre><code>The following objects are masked from 'package:EDAWR':
+
+    population, who</code></pre>
+</div>
+<div class="sourceCode cell-code" id="cb9"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(knitr)</span>
+<span id="cb9-2"><a href="#cb9-2" aria-hidden="true" tabindex="-1"></a>df <span class="ot">=</span> storms</span>
+<span id="cb9-3"><a href="#cb9-3" aria-hidden="true" tabindex="-1"></a>subset <span class="ot">=</span> <span class="fu">select</span>(df, name, pressure)</span>
+<span id="cb9-4"><a href="#cb9-4" aria-hidden="true" tabindex="-1"></a><span class="fu">kable</span>((<span class="fu">head</span>(subset)))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output-display">
+<table class="table table-sm table-striped">
+<thead>
+<tr class="header">
+<th style="text-align: left;">name</th>
+<th style="text-align: right;">pressure</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: left;">Amy</td>
+<td style="text-align: right;">1013</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">Amy</td>
+<td style="text-align: right;">1013</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">Amy</td>
+<td style="text-align: right;">1013</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">Amy</td>
+<td style="text-align: right;">1013</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">Amy</td>
+<td style="text-align: right;">1012</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">Amy</td>
+<td style="text-align: right;">1012</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+<p>Dropping a column.</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb10"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true" tabindex="-1"></a><span class="fu">select</span>(storms, <span class="sc">-</span>name)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code># A tibble: 11,859 × 12
+    year month   day  hour   lat  long status      categ…¹  wind press…² tropi…³
+   &lt;dbl&gt; &lt;dbl&gt; &lt;int&gt; &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt; &lt;chr&gt;       &lt;ord&gt;   &lt;int&gt;   &lt;int&gt;   &lt;int&gt;
+ 1  1975     6    27     0  27.5 -79   tropical d… -1         25    1013      NA
+ 2  1975     6    27     6  28.5 -79   tropical d… -1         25    1013      NA
+ 3  1975     6    27    12  29.5 -79   tropical d… -1         25    1013      NA
+ 4  1975     6    27    18  30.5 -79   tropical d… -1         25    1013      NA
+ 5  1975     6    28     0  31.5 -78.8 tropical d… -1         25    1012      NA
+ 6  1975     6    28     6  32.4 -78.7 tropical d… -1         25    1012      NA
+ 7  1975     6    28    12  33.3 -78   tropical d… -1         25    1011      NA
+ 8  1975     6    28    18  34   -77   tropical d… -1         30    1006      NA
+ 9  1975     6    29     0  34.4 -75.8 tropical s… 0          35    1004      NA
+10  1975     6    29     6  34   -74.8 tropical s… 0          40    1002      NA
+# … with 11,849 more rows, 1 more variable: hurricane_force_diameter &lt;int&gt;, and
+#   abbreviated variable names ¹​category, ²​pressure,
+#   ³​tropicalstorm_force_diameter</code></pre>
+</div>
+</div>
+<p>Obtaining a range of variables.</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb12"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb12-1"><a href="#cb12-1" aria-hidden="true" tabindex="-1"></a><span class="fu">select</span>(storms, wind<span class="sc">:</span>year)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code># A tibble: 11,859 × 9
+    wind category status               long   lat  hour   day month  year
+   &lt;int&gt; &lt;ord&gt;    &lt;chr&gt;               &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt; &lt;int&gt; &lt;dbl&gt; &lt;dbl&gt;
+ 1    25 -1       tropical depression -79    27.5     0    27     6  1975
+ 2    25 -1       tropical depression -79    28.5     6    27     6  1975
+ 3    25 -1       tropical depression -79    29.5    12    27     6  1975
+ 4    25 -1       tropical depression -79    30.5    18    27     6  1975
+ 5    25 -1       tropical depression -78.8  31.5     0    28     6  1975
+ 6    25 -1       tropical depression -78.7  32.4     6    28     6  1975
+ 7    25 -1       tropical depression -78    33.3    12    28     6  1975
+ 8    30 -1       tropical depression -77    34      18    28     6  1975
+ 9    35 0        tropical storm      -75.8  34.4     0    29     6  1975
+10    40 0        tropical storm      -74.8  34       6    29     6  1975
+# … with 11,849 more rows</code></pre>
+</div>
+</div>
+<p>filter()</p>
+<p>Filter out observations using logical tests.</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb14"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb14-1"><a href="#cb14-1" aria-hidden="true" tabindex="-1"></a><span class="fu">filter</span>(storms, wind <span class="sc">&gt;=</span> <span class="dv">50</span>, name <span class="sc">%in%</span> <span class="fu">c</span>(<span class="st">'Alberto'</span>, <span class="st">'Alex'</span>, <span class="st">'Allison'</span>))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code># A tibble: 128 × 13
+   name     year month   day  hour   lat  long status      categ…¹  wind press…²
+   &lt;chr&gt;   &lt;dbl&gt; &lt;dbl&gt; &lt;int&gt; &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt; &lt;chr&gt;       &lt;ord&gt;   &lt;int&gt;   &lt;int&gt;
+ 1 Alberto  1982     6     3    12  23.2 -84.2 tropical s… 0          50     995
+ 2 Alberto  1982     6     3    18  24   -83.6 hurricane   1          75     985
+ 3 Alberto  1982     6     4     0  24.8 -83.4 hurricane   1          65     992
+ 4 Alberto  1982     6     4     6  24.9 -84.1 tropical s… 0          55     998
+ 5 Alberto  1994     7     3     6  28.8 -86.8 tropical s… 0          50     997
+ 6 Alberto  1994     7     3    12  29.9 -86.7 tropical s… 0          55     993
+ 7 Alberto  1994     7     3    15  30.4 -86.5 tropical s… 0          55     993
+ 8 Allison  1995     6     4     0  22   -86   tropical s… 0          50     997
+ 9 Allison  1995     6     4     6  23.3 -86.3 tropical s… 0          60     995
+10 Allison  1995     6     4    12  24.7 -86.2 hurricane   1          65     987
+# … with 118 more rows, 2 more variables: tropicalstorm_force_diameter &lt;int&gt;,
+#   hurricane_force_diameter &lt;int&gt;, and abbreviated variable names ¹​category,
+#   ²​pressure</code></pre>
+</div>
+</div>
+<p>mutate()</p>
+<p>Mutate() allows you to generate new variables from existing ones.</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb16"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb16-1"><a href="#cb16-1" aria-hidden="true" tabindex="-1"></a>df <span class="ot">=</span> <span class="fu">mutate</span>(storms, <span class="at">ratio =</span> pressure<span class="sc">/</span>wind)</span>
+<span id="cb16-2"><a href="#cb16-2" aria-hidden="true" tabindex="-1"></a><span class="fu">select</span>(df, name, ratio)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code># A tibble: 11,859 × 2
+   name  ratio
+   &lt;chr&gt; &lt;dbl&gt;
+ 1 Amy    40.5
+ 2 Amy    40.5
+ 3 Amy    40.5
+ 4 Amy    40.5
+ 5 Amy    40.5
+ 6 Amy    40.5
+ 7 Amy    40.4
+ 8 Amy    33.5
+ 9 Amy    28.7
+10 Amy    25.0
+# … with 11,849 more rows</code></pre>
+</div>
+</div>
+<p>summarise()</p>
+<p>Calculates summary statistics from a dataframe.</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb18"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb18-1"><a href="#cb18-1" aria-hidden="true" tabindex="-1"></a>pollution <span class="sc">%&gt;%</span> <span class="fu">summarise</span>(<span class="at">median =</span> <span class="fu">median</span>(amount), <span class="at">variance =</span> <span class="fu">var</span>(amount))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>  median variance
+1   22.5   1731.6</code></pre>
+</div>
+</div>
+<p>arrange()</p>
+<p>Arranges the order of the rows within a dataframe based on the values within a column.</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb20"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb20-1"><a href="#cb20-1" aria-hidden="true" tabindex="-1"></a><span class="fu">arrange</span>(storms, wind)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code># A tibble: 11,859 × 13
+   name       year month   day  hour   lat  long status    categ…¹  wind press…²
+   &lt;chr&gt;     &lt;dbl&gt; &lt;dbl&gt; &lt;int&gt; &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt; &lt;chr&gt;     &lt;ord&gt;   &lt;int&gt;   &lt;int&gt;
+ 1 Bonnie     1986     6    28     6  36.5 -91.3 tropical… -1         10    1013
+ 2 Bonnie     1986     6    28    12  37.2 -90   tropical… -1         10    1012
+ 3 AL031987   1987     8    16    18  30.9 -83.2 tropical… -1         10    1014
+ 4 AL031987   1987     8    17     0  31.4 -82.9 tropical… -1         10    1015
+ 5 AL031987   1987     8    17     6  31.8 -82.3 tropical… -1         10    1015
+ 6 Alberto    1994     7     7     0  32.7 -86.3 tropical… -1         10    1012
+ 7 Alberto    1994     7     7     6  32.7 -86.6 tropical… -1         10    1012
+ 8 Alberto    1994     7     7    12  32.8 -86.8 tropical… -1         10    1012
+ 9 Alberto    1994     7     7    18  33   -87   tropical… -1         10    1013
+10 Claudette  1979     7    27    12  34   -95.9 tropical… -1         15    1007
+# … with 11,849 more rows, 2 more variables:
+#   tropicalstorm_force_diameter &lt;int&gt;, hurricane_force_diameter &lt;int&gt;, and
+#   abbreviated variable names ¹​category, ²​pressure</code></pre>
+</div>
+<div class="sourceCode cell-code" id="cb22"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb22-1"><a href="#cb22-1" aria-hidden="true" tabindex="-1"></a><span class="fu">arrange</span>(storms, <span class="fu">desc</span>(wind))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code># A tibble: 11,859 × 13
+   name     year month   day  hour   lat  long status    category  wind pressure
+   &lt;chr&gt;   &lt;dbl&gt; &lt;dbl&gt; &lt;int&gt; &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt; &lt;chr&gt;     &lt;ord&gt;    &lt;int&gt;    &lt;int&gt;
+ 1 Gilbert  1988     9    14     0  19.7 -83.8 hurricane 5          160      888
+ 2 Wilma    2005    10    19    12  17.3 -82.8 hurricane 5          160      882
+ 3 Dorian   2019     9     1    16  26.5 -77   hurricane 5          160      910
+ 4 Dorian   2019     9     1    18  26.5 -77.1 hurricane 5          160      910
+ 5 Gilbert  1988     9    14     6  19.9 -85.3 hurricane 5          155      889
+ 6 Mitch    1998    10    26    18  16.9 -83.1 hurricane 5          155      905
+ 7 Mitch    1998    10    27     0  17.2 -83.8 hurricane 5          155      910
+ 8 Rita     2005     9    22     3  24.7 -87.3 hurricane 5          155      895
+ 9 Rita     2005     9    22     6  24.8 -87.6 hurricane 5          155      897
+10 Dorian   2019     9     1    12  26.5 -76.5 hurricane 5          155      927
+# … with 11,849 more rows, and 2 more variables:
+#   tropicalstorm_force_diameter &lt;int&gt;, hurricane_force_diameter &lt;int&gt;</code></pre>
+</div>
+</div>
+<p>Adding additional variables into the arrange function will use those as tiebreakers between observations that have the same value.</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb24"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb24-1"><a href="#cb24-1" aria-hidden="true" tabindex="-1"></a><span class="fu">arrange</span>(storms, wind,year)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code># A tibble: 11,859 × 13
+   name       year month   day  hour   lat  long status    categ…¹  wind press…²
+   &lt;chr&gt;     &lt;dbl&gt; &lt;dbl&gt; &lt;int&gt; &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt; &lt;chr&gt;     &lt;ord&gt;   &lt;int&gt;   &lt;int&gt;
+ 1 Bonnie     1986     6    28     6  36.5 -91.3 tropical… -1         10    1013
+ 2 Bonnie     1986     6    28    12  37.2 -90   tropical… -1         10    1012
+ 3 AL031987   1987     8    16    18  30.9 -83.2 tropical… -1         10    1014
+ 4 AL031987   1987     8    17     0  31.4 -82.9 tropical… -1         10    1015
+ 5 AL031987   1987     8    17     6  31.8 -82.3 tropical… -1         10    1015
+ 6 Alberto    1994     7     7     0  32.7 -86.3 tropical… -1         10    1012
+ 7 Alberto    1994     7     7     6  32.7 -86.6 tropical… -1         10    1012
+ 8 Alberto    1994     7     7    12  32.8 -86.8 tropical… -1         10    1012
+ 9 Alberto    1994     7     7    18  33   -87   tropical… -1         10    1013
+10 Claudette  1979     7    27    12  34   -95.9 tropical… -1         15    1007
+# … with 11,849 more rows, 2 more variables:
+#   tropicalstorm_force_diameter &lt;int&gt;, hurricane_force_diameter &lt;int&gt;, and
+#   abbreviated variable names ¹​category, ²​pressure</code></pre>
+</div>
+</div>
+<p>Pipe Operator</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb26"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb26-1"><a href="#cb26-1" aria-hidden="true" tabindex="-1"></a>storms <span class="sc">%&gt;%</span></span>
+<span id="cb26-2"><a href="#cb26-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">filter</span>(wind<span class="sc">&gt;=</span><span class="dv">50</span>) <span class="sc">%&gt;%</span></span>
+<span id="cb26-3"><a href="#cb26-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">select</span>(name, pressure)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code># A tibble: 5,756 × 2
+   name  pressure
+   &lt;chr&gt;    &lt;int&gt;
+ 1 Amy        998
+ 2 Amy        998
+ 3 Amy        998
+ 4 Amy        987
+ 5 Amy        987
+ 6 Amy        984
+ 7 Amy        984
+ 8 Amy        984
+ 9 Amy        984
+10 Amy        984
+# … with 5,746 more rows</code></pre>
+</div>
+</div>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb28"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb28-1"><a href="#cb28-1" aria-hidden="true" tabindex="-1"></a>storms <span class="sc">%&gt;%</span></span>
+<span id="cb28-2"><a href="#cb28-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">ratio =</span> pressure<span class="sc">/</span>wind) <span class="sc">%&gt;%</span></span>
+<span id="cb28-3"><a href="#cb28-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">select</span>(name, ratio) </span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code># A tibble: 11,859 × 2
+   name  ratio
+   &lt;chr&gt; &lt;dbl&gt;
+ 1 Amy    40.5
+ 2 Amy    40.5
+ 3 Amy    40.5
+ 4 Amy    40.5
+ 5 Amy    40.5
+ 6 Amy    40.5
+ 7 Amy    40.4
+ 8 Amy    33.5
+ 9 Amy    28.7
+10 Amy    25.0
+# … with 11,849 more rows</code></pre>
+</div>
+</div>
+<p>group_by() + summarise()</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb30"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb30-1"><a href="#cb30-1" aria-hidden="true" tabindex="-1"></a>grouped_pollution <span class="ot">=</span> pollution <span class="sc">%&gt;%</span> <span class="fu">group_by</span>(city) <span class="sc">%&gt;%</span> <span class="fu">summarise</span>(<span class="at">mean =</span> <span class="fu">mean</span>(amount), <span class="at">sum =</span> <span class="fu">sum</span>(amount), <span class="at">n =</span> <span class="fu">n</span>())</span>
+<span id="cb30-2"><a href="#cb30-2" aria-hidden="true" tabindex="-1"></a><span class="fu">kable</span>(grouped_pollution)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output-display">
+<table class="table table-sm table-striped">
+<thead>
+<tr class="header">
+<th style="text-align: left;">city</th>
+<th style="text-align: right;">mean</th>
+<th style="text-align: right;">sum</th>
+<th style="text-align: right;">n</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: left;">Beijing</td>
+<td style="text-align: right;">88.5</td>
+<td style="text-align: right;">177</td>
+<td style="text-align: right;">2</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">London</td>
+<td style="text-align: right;">19.0</td>
+<td style="text-align: right;">38</td>
+<td style="text-align: right;">2</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">New York</td>
+<td style="text-align: right;">18.5</td>
+<td style="text-align: right;">37</td>
+<td style="text-align: right;">2</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb31"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb31-1"><a href="#cb31-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(gtsummary)</span>
+<span id="cb31-2"><a href="#cb31-2" aria-hidden="true" tabindex="-1"></a>grouped_pollution <span class="sc">%&gt;%</span> <span class="fu">select</span>(city,mean,sum) <span class="sc">%&gt;%</span> <span class="fu">tbl_summary</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output-display">
+
+<div id="aqdzxxehxl" style="overflow-x:auto;overflow-y:auto;width:auto;height:auto;">
+<style>html {
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Helvetica Neue', 'Fira Sans', 'Droid Sans', Arial, sans-serif;
+}
+
+#aqdzxxehxl .gt_table {
+  display: table;
+  border-collapse: collapse;
+  margin-left: auto;
+  margin-right: auto;
+  color: #333333;
+  font-size: 16px;
+  font-weight: normal;
+  font-style: normal;
+  background-color: #FFFFFF;
+  width: auto;
+  border-top-style: solid;
+  border-top-width: 2px;
+  border-top-color: #A8A8A8;
+  border-right-style: none;
+  border-right-width: 2px;
+  border-right-color: #D3D3D3;
+  border-bottom-style: solid;
+  border-bottom-width: 2px;
+  border-bottom-color: #A8A8A8;
+  border-left-style: none;
+  border-left-width: 2px;
+  border-left-color: #D3D3D3;
+}
+
+#aqdzxxehxl .gt_heading {
+  background-color: #FFFFFF;
+  text-align: center;
+  border-bottom-color: #FFFFFF;
+  border-left-style: none;
+  border-left-width: 1px;
+  border-left-color: #D3D3D3;
+  border-right-style: none;
+  border-right-width: 1px;
+  border-right-color: #D3D3D3;
+}
+
+#aqdzxxehxl .gt_title {
+  color: #333333;
+  font-size: 125%;
+  font-weight: initial;
+  padding-top: 4px;
+  padding-bottom: 4px;
+  padding-left: 5px;
+  padding-right: 5px;
+  border-bottom-color: #FFFFFF;
+  border-bottom-width: 0;
+}
+
+#aqdzxxehxl .gt_subtitle {
+  color: #333333;
+  font-size: 85%;
+  font-weight: initial;
+  padding-top: 0;
+  padding-bottom: 6px;
+  padding-left: 5px;
+  padding-right: 5px;
+  border-top-color: #FFFFFF;
+  border-top-width: 0;
+}
+
+#aqdzxxehxl .gt_bottom_border {
+  border-bottom-style: solid;
+  border-bottom-width: 2px;
+  border-bottom-color: #D3D3D3;
+}
+
+#aqdzxxehxl .gt_col_headings {
+  border-top-style: solid;
+  border-top-width: 2px;
+  border-top-color: #D3D3D3;
+  border-bottom-style: solid;
+  border-bottom-width: 2px;
+  border-bottom-color: #D3D3D3;
+  border-left-style: none;
+  border-left-width: 1px;
+  border-left-color: #D3D3D3;
+  border-right-style: none;
+  border-right-width: 1px;
+  border-right-color: #D3D3D3;
+}
+
+#aqdzxxehxl .gt_col_heading {
+  color: #333333;
+  background-color: #FFFFFF;
+  font-size: 100%;
+  font-weight: normal;
+  text-transform: inherit;
+  border-left-style: none;
+  border-left-width: 1px;
+  border-left-color: #D3D3D3;
+  border-right-style: none;
+  border-right-width: 1px;
+  border-right-color: #D3D3D3;
+  vertical-align: bottom;
+  padding-top: 5px;
+  padding-bottom: 6px;
+  padding-left: 5px;
+  padding-right: 5px;
+  overflow-x: hidden;
+}
+
+#aqdzxxehxl .gt_column_spanner_outer {
+  color: #333333;
+  background-color: #FFFFFF;
+  font-size: 100%;
+  font-weight: normal;
+  text-transform: inherit;
+  padding-top: 0;
+  padding-bottom: 0;
+  padding-left: 4px;
+  padding-right: 4px;
+}
+
+#aqdzxxehxl .gt_column_spanner_outer:first-child {
+  padding-left: 0;
+}
+
+#aqdzxxehxl .gt_column_spanner_outer:last-child {
+  padding-right: 0;
+}
+
+#aqdzxxehxl .gt_column_spanner {
+  border-bottom-style: solid;
+  border-bottom-width: 2px;
+  border-bottom-color: #D3D3D3;
+  vertical-align: bottom;
+  padding-top: 5px;
+  padding-bottom: 5px;
+  overflow-x: hidden;
+  display: inline-block;
+  width: 100%;
+}
+
+#aqdzxxehxl .gt_group_heading {
+  padding-top: 8px;
+  padding-bottom: 8px;
+  padding-left: 5px;
+  padding-right: 5px;
+  color: #333333;
+  background-color: #FFFFFF;
+  font-size: 100%;
+  font-weight: initial;
+  text-transform: inherit;
+  border-top-style: solid;
+  border-top-width: 2px;
+  border-top-color: #D3D3D3;
+  border-bottom-style: solid;
+  border-bottom-width: 2px;
+  border-bottom-color: #D3D3D3;
+  border-left-style: none;
+  border-left-width: 1px;
+  border-left-color: #D3D3D3;
+  border-right-style: none;
+  border-right-width: 1px;
+  border-right-color: #D3D3D3;
+  vertical-align: middle;
+}
+
+#aqdzxxehxl .gt_empty_group_heading {
+  padding: 0.5px;
+  color: #333333;
+  background-color: #FFFFFF;
+  font-size: 100%;
+  font-weight: initial;
+  border-top-style: solid;
+  border-top-width: 2px;
+  border-top-color: #D3D3D3;
+  border-bottom-style: solid;
+  border-bottom-width: 2px;
+  border-bottom-color: #D3D3D3;
+  vertical-align: middle;
+}
+
+#aqdzxxehxl .gt_from_md > :first-child {
+  margin-top: 0;
+}
+
+#aqdzxxehxl .gt_from_md > :last-child {
+  margin-bottom: 0;
+}
+
+#aqdzxxehxl .gt_row {
+  padding-top: 8px;
+  padding-bottom: 8px;
+  padding-left: 5px;
+  padding-right: 5px;
+  margin: 10px;
+  border-top-style: solid;
+  border-top-width: 1px;
+  border-top-color: #D3D3D3;
+  border-left-style: none;
+  border-left-width: 1px;
+  border-left-color: #D3D3D3;
+  border-right-style: none;
+  border-right-width: 1px;
+  border-right-color: #D3D3D3;
+  vertical-align: middle;
+  overflow-x: hidden;
+}
+
+#aqdzxxehxl .gt_stub {
+  color: #333333;
+  background-color: #FFFFFF;
+  font-size: 100%;
+  font-weight: initial;
+  text-transform: inherit;
+  border-right-style: solid;
+  border-right-width: 2px;
+  border-right-color: #D3D3D3;
+  padding-left: 5px;
+  padding-right: 5px;
+}
+
+#aqdzxxehxl .gt_stub_row_group {
+  color: #333333;
+  background-color: #FFFFFF;
+  font-size: 100%;
+  font-weight: initial;
+  text-transform: inherit;
+  border-right-style: solid;
+  border-right-width: 2px;
+  border-right-color: #D3D3D3;
+  padding-left: 5px;
+  padding-right: 5px;
+  vertical-align: top;
+}
+
+#aqdzxxehxl .gt_row_group_first td {
+  border-top-width: 2px;
+}
+
+#aqdzxxehxl .gt_summary_row {
+  color: #333333;
+  background-color: #FFFFFF;
+  text-transform: inherit;
+  padding-top: 8px;
+  padding-bottom: 8px;
+  padding-left: 5px;
+  padding-right: 5px;
+}
+
+#aqdzxxehxl .gt_first_summary_row {
+  border-top-style: solid;
+  border-top-color: #D3D3D3;
+}
+
+#aqdzxxehxl .gt_first_summary_row.thick {
+  border-top-width: 2px;
+}
+
+#aqdzxxehxl .gt_last_summary_row {
+  padding-top: 8px;
+  padding-bottom: 8px;
+  padding-left: 5px;
+  padding-right: 5px;
+  border-bottom-style: solid;
+  border-bottom-width: 2px;
+  border-bottom-color: #D3D3D3;
+}
+
+#aqdzxxehxl .gt_grand_summary_row {
+  color: #333333;
+  background-color: #FFFFFF;
+  text-transform: inherit;
+  padding-top: 8px;
+  padding-bottom: 8px;
+  padding-left: 5px;
+  padding-right: 5px;
+}
+
+#aqdzxxehxl .gt_first_grand_summary_row {
+  padding-top: 8px;
+  padding-bottom: 8px;
+  padding-left: 5px;
+  padding-right: 5px;
+  border-top-style: double;
+  border-top-width: 6px;
+  border-top-color: #D3D3D3;
+}
+
+#aqdzxxehxl .gt_striped {
+  background-color: rgba(128, 128, 128, 0.05);
+}
+
+#aqdzxxehxl .gt_table_body {
+  border-top-style: solid;
+  border-top-width: 2px;
+  border-top-color: #D3D3D3;
+  border-bottom-style: solid;
+  border-bottom-width: 2px;
+  border-bottom-color: #D3D3D3;
+}
+
+#aqdzxxehxl .gt_footnotes {
+  color: #333333;
+  background-color: #FFFFFF;
+  border-bottom-style: none;
+  border-bottom-width: 2px;
+  border-bottom-color: #D3D3D3;
+  border-left-style: none;
+  border-left-width: 2px;
+  border-left-color: #D3D3D3;
+  border-right-style: none;
+  border-right-width: 2px;
+  border-right-color: #D3D3D3;
+}
+
+#aqdzxxehxl .gt_footnote {
+  margin: 0px;
+  font-size: 90%;
+  padding-left: 4px;
+  padding-right: 4px;
+  padding-left: 5px;
+  padding-right: 5px;
+}
+
+#aqdzxxehxl .gt_sourcenotes {
+  color: #333333;
+  background-color: #FFFFFF;
+  border-bottom-style: none;
+  border-bottom-width: 2px;
+  border-bottom-color: #D3D3D3;
+  border-left-style: none;
+  border-left-width: 2px;
+  border-left-color: #D3D3D3;
+  border-right-style: none;
+  border-right-width: 2px;
+  border-right-color: #D3D3D3;
+}
+
+#aqdzxxehxl .gt_sourcenote {
+  font-size: 90%;
+  padding-top: 4px;
+  padding-bottom: 4px;
+  padding-left: 5px;
+  padding-right: 5px;
+}
+
+#aqdzxxehxl .gt_left {
+  text-align: left;
+}
+
+#aqdzxxehxl .gt_center {
+  text-align: center;
+}
+
+#aqdzxxehxl .gt_right {
+  text-align: right;
+  font-variant-numeric: tabular-nums;
+}
+
+#aqdzxxehxl .gt_font_normal {
+  font-weight: normal;
+}
+
+#aqdzxxehxl .gt_font_bold {
+  font-weight: bold;
+}
+
+#aqdzxxehxl .gt_font_italic {
+  font-style: italic;
+}
+
+#aqdzxxehxl .gt_super {
+  font-size: 65%;
+}
+
+#aqdzxxehxl .gt_footnote_marks {
+  font-style: italic;
+  font-weight: normal;
+  font-size: 75%;
+  vertical-align: 0.4em;
+}
+
+#aqdzxxehxl .gt_asterisk {
+  font-size: 100%;
+  vertical-align: 0;
+}
+
+#aqdzxxehxl .gt_indent_1 {
+  text-indent: 5px;
+}
+
+#aqdzxxehxl .gt_indent_2 {
+  text-indent: 10px;
+}
+
+#aqdzxxehxl .gt_indent_3 {
+  text-indent: 15px;
+}
+
+#aqdzxxehxl .gt_indent_4 {
+  text-indent: 20px;
+}
+
+#aqdzxxehxl .gt_indent_5 {
+  text-indent: 25px;
+}
+</style>
+<table class="gt_table">
+  
+  <thead class="gt_col_headings">
+    <tr>
+      <th class="gt_col_heading gt_columns_bottom_border gt_left" rowspan="1" colspan="1" scope="col"><strong>Characteristic</strong></th>
+      <th class="gt_col_heading gt_columns_bottom_border gt_center" rowspan="1" colspan="1" scope="col"><strong>N = 3</strong><sup class="gt_footnote_marks">1</sup></th>
+    </tr>
+  </thead>
+  <tbody class="gt_table_body">
+    <tr><td class="gt_row gt_left">city</td>
+<td class="gt_row gt_center"></td></tr>
+    <tr><td class="gt_row gt_left">&nbsp;&nbsp;&nbsp;&nbsp;Beijing</td>
+<td class="gt_row gt_center">1 (33%)</td></tr>
+    <tr><td class="gt_row gt_left">&nbsp;&nbsp;&nbsp;&nbsp;London</td>
+<td class="gt_row gt_center">1 (33%)</td></tr>
+    <tr><td class="gt_row gt_left">&nbsp;&nbsp;&nbsp;&nbsp;New York</td>
+<td class="gt_row gt_center">1 (33%)</td></tr>
+    <tr><td class="gt_row gt_left">mean</td>
+<td class="gt_row gt_center"></td></tr>
+    <tr><td class="gt_row gt_left">&nbsp;&nbsp;&nbsp;&nbsp;18.5</td>
+<td class="gt_row gt_center">1 (33%)</td></tr>
+    <tr><td class="gt_row gt_left">&nbsp;&nbsp;&nbsp;&nbsp;19</td>
+<td class="gt_row gt_center">1 (33%)</td></tr>
+    <tr><td class="gt_row gt_left">&nbsp;&nbsp;&nbsp;&nbsp;88.5</td>
+<td class="gt_row gt_center">1 (33%)</td></tr>
+    <tr><td class="gt_row gt_left">sum</td>
+<td class="gt_row gt_center"></td></tr>
+    <tr><td class="gt_row gt_left">&nbsp;&nbsp;&nbsp;&nbsp;37</td>
+<td class="gt_row gt_center">1 (33%)</td></tr>
+    <tr><td class="gt_row gt_left">&nbsp;&nbsp;&nbsp;&nbsp;38</td>
+<td class="gt_row gt_center">1 (33%)</td></tr>
+    <tr><td class="gt_row gt_left">&nbsp;&nbsp;&nbsp;&nbsp;177</td>
+<td class="gt_row gt_center">1 (33%)</td></tr>
+  </tbody>
+  
+  <tfoot class="gt_footnotes">
+    <tr>
+      <td class="gt_footnote" colspan="2"><sup class="gt_footnote_marks">1</sup> n (%)</td>
+    </tr>
+  </tfoot>
+</table>
+</div>
+</div>
+</div>
+
+
+
+</main> <!-- /main -->
+<script id="quarto-html-after-body" type="application/javascript">
+window.document.addEventListener("DOMContentLoaded", function (event) {
+  const toggleBodyColorMode = (bsSheetEl) => {
+    const mode = bsSheetEl.getAttribute("data-mode");
+    const bodyEl = window.document.querySelector("body");
+    if (mode === "dark") {
+      bodyEl.classList.add("quarto-dark");
+      bodyEl.classList.remove("quarto-light");
+    } else {
+      bodyEl.classList.add("quarto-light");
+      bodyEl.classList.remove("quarto-dark");
+    }
+  }
+  const toggleBodyColorPrimary = () => {
+    const bsSheetEl = window.document.querySelector("link#quarto-bootstrap");
+    if (bsSheetEl) {
+      toggleBodyColorMode(bsSheetEl);
+    }
+  }
+  toggleBodyColorPrimary();  
+  const icon = "";
+  const anchorJS = new window.AnchorJS();
+  anchorJS.options = {
+    placement: 'right',
+    icon: icon
+  };
+  anchorJS.add('.anchored');
+  const clipboard = new window.ClipboardJS('.code-copy-button', {
+    target: function(trigger) {
+      return trigger.previousElementSibling;
+    }
+  });
+  clipboard.on('success', function(e) {
+    // button target
+    const button = e.trigger;
+    // don't keep focus
+    button.blur();
+    // flash "checked"
+    button.classList.add('code-copy-button-checked');
+    var currentTitle = button.getAttribute("title");
+    button.setAttribute("title", "Copied!");
+    setTimeout(function() {
+      button.setAttribute("title", currentTitle);
+      button.classList.remove('code-copy-button-checked');
+    }, 1000);
+    // clear code selection
+    e.clearSelection();
+  });
+  function tippyHover(el, contentFn) {
+    const config = {
+      allowHTML: true,
+      content: contentFn,
+      maxWidth: 500,
+      delay: 100,
+      arrow: false,
+      appendTo: function(el) {
+          return el.parentElement;
+      },
+      interactive: true,
+      interactiveBorder: 10,
+      theme: 'quarto',
+      placement: 'bottom-start'
+    };
+    window.tippy(el, config); 
+  }
+  const noterefs = window.document.querySelectorAll('a[role="doc-noteref"]');
+  for (var i=0; i<noterefs.length; i++) {
+    const ref = noterefs[i];
+    tippyHover(ref, function() {
+      let href = ref.getAttribute('href');
+      try { href = new URL(href).hash; } catch {}
+      const id = href.replace(/^#\/?/, "");
+      const note = window.document.getElementById(id);
+      return note.innerHTML;
+    });
+  }
+  var bibliorefs = window.document.querySelectorAll('a[role="doc-biblioref"]');
+  for (var i=0; i<bibliorefs.length; i++) {
+    const ref = bibliorefs[i];
+    const cites = ref.parentNode.getAttribute('data-cites').split(' ');
+    tippyHover(ref, function() {
+      var popup = window.document.createElement('div');
+      cites.forEach(function(cite) {
+        var citeDiv = window.document.createElement('div');
+        citeDiv.classList.add('hanging-indent');
+        citeDiv.classList.add('csl-entry');
+        var biblioDiv = window.document.getElementById('ref-' + cite);
+        if (biblioDiv) {
+          citeDiv.innerHTML = biblioDiv.innerHTML;
+        }
+        popup.appendChild(citeDiv);
+      });
+      return popup.innerHTML;
+    });
+  }
+});
+</script>
+</div> <!-- /content -->
+
+
+
+</body></html>

@@ -1,0 +1,11 @@
+---
+title: "index"
+editor: visual
+---
+
+```{r}
+library(tidyverse)
+tuesday <- tidytuesdayR::tt_load(2022, week = 24)
+drought <-  tuesday$drought
+View(drought)
+```
