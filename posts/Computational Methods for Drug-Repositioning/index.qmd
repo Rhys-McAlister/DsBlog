@@ -1,5 +1,5 @@
 ---
-title: "Simple Linear Regression"
+title: "Computational Methods for Drug Repositioning"
 author: "Rhys McAlister"
 date: "2022-09-19"
 categories: [news,analysis]
