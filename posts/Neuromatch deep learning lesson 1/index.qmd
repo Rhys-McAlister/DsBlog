@@ -194,3 +194,117 @@ Z = np.vander([1, 2, 3], 4)
 A, B, C, D = tensor_creation(Z)
 
 ```
+
+```{python}
+a = torch.ones(5, 3)
+b = torch.rand(5, 3)
+c = torch.empty(5, 3)
+d = torch.empty(5, 3)
+
+# this only works if c and d already exist
+torch.add(a, b, out=c)
+
+# Pointwise Multiplication of a and b
+torch.multiply(a, b, out=d)
+
+print(c)
+print(d)
+```
+
+```{python}
+
+```
+
+```{python}
+def simple_operations(a1: torch.Tensor, a2: torch.Tensor, a3: torch.Tensor):
+  """
+  Helper function to demonstrate simple operations
+  i.e., Multiplication of tensor a1 with tensor a2 and then add it with tensor a3
+
+  Args:
+    a1: Torch tensor
+      Tensor of size ([2,2])
+    a2: Torch tensor
+      Tensor of size ([2,2])
+    a3: Torch tensor
+      Tensor of size ([2,2])
+
+  Returns:
+    answer: Torch tensor
+      Tensor of size ([2,2]) resulting from a1 multiplied with a2, added with a3
+  """
+  ################################################
+  ## TODO for students:  complete the first computation using the argument matricies
+  
+  ################################################
+  #
+  answer = a1 @ a2 + a3 
+  return answer
+
+# add timing to airtable
+
+
+# Computing expression 1:
+
+# init our tensors
+a1 = torch.tensor([[2, 4], [5, 7]])
+a2 = torch.tensor([[1, 1], [2, 3]])
+a3 = torch.tensor([[10, 10], [12, 1]])
+## uncomment to test your function
+A = simple_operations(a1, a2, a3)
+print(A)
+```
+
+```{python}
+def dot_product(b1: torch.Tensor, b2: torch.Tensor):
+  ###############################################
+  ## TODO for students:  complete the first computation using the argument matricies
+  
+  ###############################################
+  """
+  Helper function to demonstrate dot product operation
+  Dot product is an algebraic operation that takes two equal-length sequences
+  (usually coordinate vectors), and returns a single number.
+  Geometrically, it is the product of the Euclidean magnitudes of the
+  two vectors and the cosine of the angle between them.
+
+  Args:
+    b1: Torch tensor
+      Tensor of size ([3])
+    b2: Torch tensor
+      Tensor of size ([3])
+
+  Returns:
+    product: Tensor
+      Tensor of size ([1]) resulting from b1 scalar multiplied with b2
+  """
+  # Use torch.dot() to compute the dot product of two tensors
+  product = torch.dot(b1, b2)
+  return product
+
+# add timing to airtable
+
+
+# Computing expression 2:
+b1 = torch.tensor([3, 5, 7])
+b2 = torch.tensor([2, 4, 8])
+## Uncomment to test your function
+b = dot_product(b1, b2)
+print(b)
+```
+
+Irrelevant dimensions
+
+There is a command `.squeeze` that gets rid of the singleton dimension it allow for indexing into the first dimension of a rank 1 tensor more simply.
+
+```{python}
+x = torch.randn(1,10)
+print(x.shape)
+print("x[0]: ", x[0])
+
+x = x.squeeze(0)
+print(x.shape)
+print("x[0]: ", x[0])
+```
+
+Dimensional permutation
