@@ -7,6 +7,19 @@ date: 21/10/22
 toc: true
 toc-depth: 2
 title-block-banner: true
+bibliography: references.bib
 ---
 
+# Why are nanoparticles used in medicine?
 
+Nanoparticles used for medicinal purposes are referred to as nanomedicines and these agents have multi-dimensional usage as diagnostic tools or vehicles used for the targetted delivery of selected therapeutic compounds[@sadeghi2020]. Nanoparticles are defined as being between 1-100 nanometres (nm) in diameter and these particles have already been used in the delivery of drugs such as vaccines, nucleotides and recombinant proteins[@sadeghi2020]. These nanoparticle dependent delivery strategies exhibit improvements in rate of absorption, reduction in elimination kinetics and controlled release[@sadeghi2020].
+
+An important consideration within pharmacological treatments is how to best maintain the concentration of the drug at the site of action. The optimal concentration range is termed as the therapeutic window and this window is a range in which the effectiveness of the drug is maintained without reaching toxic levels. The use of nanoparticle delivery systems allows for the pharmacokinetics and biodistribution of a drug to be dependent upon the characteristics of a given nanoparticle and not upon the drug molecule.
+
+Nanoparticles have been constructed from various materials and the four major compositional categories are: organic, inorganic, carbon-based and composite-based[@jeevanandam2018]. The material choice in addition to the size and shape of the nanoparticle are key in determining its biological outcomes[@jeevanandam2018]. Additional considerations are the particles surface bioactivity and functionality.
+
+::: column-margin
+![Nanoparticle composition categories [@sadeghi2020]](cat-image.jpg)
+:::
+
+# Biodistribution of nanoparticles
