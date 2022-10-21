@@ -4,6 +4,7 @@ project:
 
 website:
   title: "Working notes"
+  google-analytics: G-2Y180Y6F2P
   navbar:
     right:
       - about.qmd

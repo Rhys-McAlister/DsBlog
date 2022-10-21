@@ -1,8 +1,15 @@
 ---
 title: "dplyr and tidyr"
+the-abstract: "This paper outlines the use of computational chemistry methods to identify approved drugs that display an inhibitory effect against the main protease of SARS-CoV-2. This process is known as drug repurposing but is also termed as drug repositioning or therapeutic switching. This approach is used to identify novel therapeutic agents from a pool of existing FDA approved drug molecules. This approach is highly relevant as the drug discovery process is expensive, time-consuming, and financially risky. Thus, drug repositioning is employed to increase the success rate of drug development by offering numerous advantages relative to tradition drug discovery processes. These include a substantial reduction in the duration of the drug development process, lower-cost and higher efficiency and a significantly lower risk of failure[1]. The COVID-19 global pandemic highlighted an urgent need to develop effective therapeutic agents in a much shorter timeframe than traditional drug discovery processes allow for, thus drug repositioning efforts have been explored thoroughly as part of the effort to identify drug molecules for the treatment of COVID-19[1]. One of the predominant strategies used in drug-repurposing approaches is the use of computational methods such as molecular docking or molecular similarity. Computational methods follow along with the benefits of drug-repurposing approaches in that they allow for a time and cost efficient approach to identifying bioactive molecules to be examined for potential use as pharmacological agents[2]."
 author: "Rhys McAlister"
 editor: visual
+format:
+  pdf: 
+    template: article_2.tex
 ---
+# title
+
+## title
 
 This article is a summary of a collection of [videos](https://youtu.be/Zc_ufg4uW4U "Data Manipulation Tools: dplyr") produced by the Rstudio team discussing the data manipulation tools dplyr and tidyr. These are my own notes on these videos that I am publishing for reference for myself and others.
 
@@ -21,25 +28,19 @@ select()
 This function allows for the subsection of a smaller number of columns from a larger dataframe.
 
 ```{r}
-library(EDAWR)
-library(dplyr)
-library(tidyr)
-library(knitr)
-df = storms
-subset = select(df, name, pressure)
-kable((head(subset)))
+
 ```
 
 Dropping a column.
 
 ```{r}
-select(storms, -name)
+
 ```
 
 Obtaining a range of variables.
 
 ```{r}
-select(storms, wind:year)
+
 ```
 
 filter()
@@ -47,7 +48,7 @@ filter()
 Filter out observations using logical tests.
 
 ```{r}
-filter(storms, wind >= 50, name %in% c('Alberto', 'Alex', 'Allison'))
+
 ```
 
 mutate()
@@ -55,56 +56,41 @@ mutate()
 Mutate() allows you to generate new variables from existing ones.
 
 ```{r}
-df = mutate(storms, ratio = pressure/wind)
-select(df, name, ratio)
+
 ```
 
 summarise()
 
 Calculates summary statistics from a dataframe.
 
-```{r}
-pollution %>% summarise(median = median(amount), variance = var(amount))
+```{}
 ```
 
 arrange()
 
 Arranges the order of the rows within a dataframe based on the values within a column.
 
-```{r}
-arrange(storms, wind)
-arrange(storms, desc(wind))
+```{}
 ```
 
 Adding additional variables into the arrange function will use those as tiebreakers between observations that have the same value.
 
 ```{r}
-arrange(storms, wind,year)
+
 ```
 
 Pipe Operator
 
-```{r}
-storms %>%
-  filter(wind>=50) %>%
-  select(name, pressure)
+```{}
 ```
 
-```{r}
-storms %>%
-  mutate(ratio = pressure/wind) %>%
-  select(name, ratio) 
+```{}
 ```
 
 group_by() + summarise()
 
-```{r}
-grouped_pollution = pollution %>% group_by(city) %>% summarise(mean = mean(amount), sum = sum(amount), n = n())
-kable(grouped_pollution)
-
+```{}
 ```
 
-```{r}
-library(gtsummary)
-grouped_pollution %>% select(city,mean,sum) %>% tbl_summary()
+```{}
 ```
