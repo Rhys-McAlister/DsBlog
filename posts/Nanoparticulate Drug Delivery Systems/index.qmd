@@ -10,6 +10,8 @@ title-block-banner: true
 bibliography: references.bib
 ---
 
+Work in progress document.
+
 # Why are nanoparticles used in medicine?
 
 Nanoparticles used for medicinal purposes are referred to as nanomedicines and these agents have multi-dimensional usage as diagnostic tools or vehicles used for the targeted delivery of selected therapeutic compounds[@sadeghi2020]. Nanoparticles are defined as being between 1-100 nanometres (nm) in diameter and these particles have already been used in the delivery of drugs such as vaccines, nucleotides and recombinant proteins[@sadeghi2020]. These nanoparticle dependent delivery strategies exhibit improvements in rate of absorption, reduction in elimination kinetics and controlled release[@sadeghi2020].
@@ -26,48 +28,50 @@ Nanoparticles have been constructed from various materials and the four major co
 
 # Biodistribution of nanoparticles
 
-Nanoparticles can be administered using various different routes, however the preeminent manner is intravenous administration currently.
+Nanoparticles can be administered using various different routes, however the preeminent manner is intravenous administration currently. The route of administration plays a large role in determining the biodistribution of a nanoparticle and specific characteristics of the particle can be tuned in order to have further control over the specific site of deposition for a given particle. When nanoparticles are inhaled, there is significant accumulation in the lung tissue, however the diameter of the nanoparticle can critically determine the specific site the particles will accumulate. @fig-deposition demonstrates that particles (0.001-0.01 $\mu$m) can be seen to accumulate significantly in the extra thoracic region whereas relatively larger particles begin to accumulate more significantly in the intrathoracic region[@geiser2010].
 
-+-------------+----------------------------------------------------+------------------------------------------------------+
-| Route       | Advantages                                         | Disadvantages/Challenges for nanoparticles           |
-+=============+====================================================+======================================================+
-| Oral        | -   Patient compliance                             | -   Acidic pH of the stomach.                        |
-|             |                                                    |                                                      |
-|             | -   Fewer infections/contamination                 | -   Presence of proteolytic enzymes in the GI tract. |
-|             |                                                    |                                                      |
-|             | -   Dosage flexibility                             | -   Low permeation across the intestinal epithelium. |
-|             |                                                    |                                                      |
-|             | -   Extensive drug absorption area in the GI tract |                                                      |
-+-------------+----------------------------------------------------+------------------------------------------------------+
-| Nasal       | -   Large surface area particularly in the lungs.  | -   Size limited through the delivery device.        |
-|             |                                                    |                                                      |
-|             | -   Highly vascularised mucosa.                    | -   Presence of nasal clearance.                     |
-|             |                                                    |                                                      |
-|             | -   Porous endothelial membrane.                   | -   Proteolytic instability.                         |
-|             |                                                    |                                                      |
-|             | -   Negligible enzymatic activity.                 |                                                      |
-|             |                                                    |                                                      |
-|             | -   Bypasses first-pass metabolism.                |                                                      |
-+-------------+----------------------------------------------------+------------------------------------------------------+
-| Pulmonary   | -   Large absorption surface area.                 | -   Can have an irritant effect on the airways.      |
-|             |                                                    |                                                      |
-|             | -   Significant vascularisation.                   | -   Protein and peptide degradation.                 |
-|             |                                                    |                                                      |
-|             | -   Narrow alveolar epithelial membrane.           | -   Low retention of drug within the lungs.          |
-|             |                                                    |                                                      |
-|             | -   Negligible enzymatic activity.                 |                                                      |
-+-------------+----------------------------------------------------+------------------------------------------------------+
-| Intravenous | -   Systemic delivery.                             | -   Invasive.                                        |
-|             |                                                    |                                                      |
-|             | -   Systemic action.                               | -   Heptatotoxicity.                                 |
-|             |                                                    |                                                      |
-|             |                                                    | -   Systemic toxicity.                               |
-+-------------+----------------------------------------------------+------------------------------------------------------+
-| Ocular      | -   Ease of administration.                        | -   Poor permeability.                               |
-|             |                                                    |                                                      |
-|             | -   Circumvents first-pass metabolism.             | -   Enzymatic degradation.                           |
-|             |                                                    |                                                      |
-|             |                                                    | -   Nasolacrimal drainage.                           |
-+-------------+----------------------------------------------------+------------------------------------------------------+
+![Particle deposition in the respiratory tract.](12989_2009_Article_100_Fig6_HTML.webp){#fig-deposition}
+
++-------------+----------------------------------------------------+-----------------------------------------------------+
+| Route       | Advantages                                         | Disadvantages/Challenges for nanoparticles          |
++=============+====================================================+=====================================================+
+| Oral        | -   Patient compliance                             | -   Acidic pH of the stomach                        |
+|             |                                                    |                                                     |
+|             | -   Fewer infections/contamination                 | -   Presence of proteolytic enzymes in the GI tract |
+|             |                                                    |                                                     |
+|             | -   Dosage flexibility                             | -   Low permeation across the intestinal epithelium |
+|             |                                                    |                                                     |
+|             | -   Extensive drug absorption area in the GI tract |                                                     |
++-------------+----------------------------------------------------+-----------------------------------------------------+
+| Nasal       | -   Large surface area particularly in the lungs   | -   Size limited through the delivery device        |
+|             |                                                    |                                                     |
+|             | -   Highly vascularised mucosa                     | -   Presence of nasal clearance                     |
+|             |                                                    |                                                     |
+|             | -   Porous endothelial membrane                    | -   Proteolytic instability                         |
+|             |                                                    |                                                     |
+|             | -   Negligible enzymatic activity                  |                                                     |
+|             |                                                    |                                                     |
+|             | -   Bypasses first-pass metabolism                 |                                                     |
++-------------+----------------------------------------------------+-----------------------------------------------------+
+| Pulmonary   | -   Large absorption surface area                  | -   Can have an irritant effect on the airways      |
+|             |                                                    |                                                     |
+|             | -   Significant vascularisation                    | -   Protein and peptide degradation                 |
+|             |                                                    |                                                     |
+|             | -   Narrow alveolar epithelial membrane            | -   Low retention of drug within the lungs          |
+|             |                                                    |                                                     |
+|             | -   Negligible enzymatic activity                  |                                                     |
++-------------+----------------------------------------------------+-----------------------------------------------------+
+| Intravenous | -   Systemic delivery                              | -   Invasive                                        |
+|             |                                                    |                                                     |
+|             | -   Systemic action                                | -   Heptatotoxicity                                 |
+|             |                                                    |                                                     |
+|             |                                                    | -   Systemic toxicity                               |
++-------------+----------------------------------------------------+-----------------------------------------------------+
+| Ocular      | -   Ease of administration                         | -   Poor permeability                               |
+|             |                                                    |                                                     |
+|             | -   Circumvents first-pass metabolism              | -   Enzymatic degradation                           |
+|             |                                                    |                                                     |
+|             |                                                    | -   Nasolacrimal drainage                           |
++-------------+----------------------------------------------------+-----------------------------------------------------+
 
 : Comparison of routes of administration[@sadeghi2020]
