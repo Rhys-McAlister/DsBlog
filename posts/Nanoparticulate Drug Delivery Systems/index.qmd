@@ -3,7 +3,7 @@ title: "Nanoparticulate Drug Delivery Systems"
 editor: visual
 author: Rhys McAlister
 subtitle: A summary of a series of lectures on nanoparticulate drug delivery systems for cancer therapy.
-date: 21/10/22
+date: 2022/10/22
 toc: true
 toc-depth: 2
 title-block-banner: true
@@ -14,7 +14,7 @@ bibliography: references.bib
 
 Nanoparticles used for medicinal purposes are referred to as nanomedicines and these agents have multi-dimensional usage as diagnostic tools or vehicles used for the targeted delivery of selected therapeutic compounds[@sadeghi2020]. Nanoparticles are defined as being between 1-100 nanometres (nm) in diameter and these particles have already been used in the delivery of drugs such as vaccines, nucleotides and recombinant proteins[@sadeghi2020]. These nanoparticle dependent delivery strategies exhibit improvements in rate of absorption, reduction in elimination kinetics and controlled release[@sadeghi2020].
 
-Traditional drug administration normally commonly involves the oral and intravenous delivery of drug molecules. These drug particles travel in an unguided manner and this results in a systemic distribution throughout the body[@lu2021]. It is instead desirable to have the drug molecules primarily be located at the desired site of action as this systemic distribution results in low drug efficacy and enhances the potential for off target effects[@lu2021].
+Traditional drug administration normally involves the oral and intravenous delivery of drug molecules. These drug particles travel in an unguided manner and this results in a systemic distribution throughout the body[@lu2021]. It is instead desirable to have the drug molecules primarily be located at the desired site of action as this systemic distribution results in low drug efficacy and enhances the potential for off target effects[@lu2021].
 
 An important consideration within pharmacological treatments is how to best maintain the concentration of the drug at the site of action. The optimal concentration range is termed as the therapeutic window and this window is a range in which the effectiveness of the drug is maintained without reaching toxic levels. The use of nanoparticle delivery systems allows for the pharmacokinetics and biodistribution of a drug to be dependent upon the characteristics of a given nanoparticle and not upon the drug molecule.
 
@@ -25,3 +25,49 @@ Nanoparticles have been constructed from various materials and the four major co
 :::
 
 # Biodistribution of nanoparticles
+
+Nanoparticles can be administered using various different routes, however the preeminent manner is intravenous administration currently.
+
++-------------+----------------------------------------------------+------------------------------------------------------+
+| Route       | Advantages                                         | Disadvantages/Challenges for nanoparticles           |
++=============+====================================================+======================================================+
+| Oral        | -   Patient compliance                             | -   Acidic pH of the stomach.                        |
+|             |                                                    |                                                      |
+|             | -   Fewer infections/contamination                 | -   Presence of proteolytic enzymes in the GI tract. |
+|             |                                                    |                                                      |
+|             | -   Dosage flexibility                             | -   Low permeation across the intestinal epithelium. |
+|             |                                                    |                                                      |
+|             | -   Extensive drug absorption area in the GI tract |                                                      |
++-------------+----------------------------------------------------+------------------------------------------------------+
+| Nasal       | -   Large surface area particularly in the lungs.  | -   Size limited through the delivery device.        |
+|             |                                                    |                                                      |
+|             | -   Highly vascularised mucosa.                    | -   Presence of nasal clearance.                     |
+|             |                                                    |                                                      |
+|             | -   Porous endothelial membrane.                   | -   Proteolytic instability.                         |
+|             |                                                    |                                                      |
+|             | -   Negligible enzymatic activity.                 |                                                      |
+|             |                                                    |                                                      |
+|             | -   Bypasses first-pass metabolism.                |                                                      |
++-------------+----------------------------------------------------+------------------------------------------------------+
+| Pulmonary   | -   Large absorption surface area.                 | -   Can have an irritant effect on the airways.      |
+|             |                                                    |                                                      |
+|             | -   Significant vascularisation.                   | -   Protein and peptide degradation.                 |
+|             |                                                    |                                                      |
+|             | -   Narrow alveolar epithelial membrane.           | -   Low retention of drug within the lungs.          |
+|             |                                                    |                                                      |
+|             | -   Negligible enzymatic activity.                 |                                                      |
++-------------+----------------------------------------------------+------------------------------------------------------+
+| Intravenous | -   Systemic delivery.                             | -   Invasive.                                        |
+|             |                                                    |                                                      |
+|             | -   Systemic action.                               | -   Heptatotoxicity.                                 |
+|             |                                                    |                                                      |
+|             |                                                    | -   Systemic toxicity.                               |
++-------------+----------------------------------------------------+------------------------------------------------------+
+| Ocular      | -   Ease of administration.                        | -   Poor permeability.                               |
+|             |                                                    |                                                      |
+|             | -   Circumvents first-pass metabolism.             | -   Enzymatic degradation.                           |
+|             |                                                    |                                                      |
+|             |                                                    | -   Nasolacrimal drainage.                           |
++-------------+----------------------------------------------------+------------------------------------------------------+
+
+: Comparison of routes of administration[@sadeghi2020]
