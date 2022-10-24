@@ -13,6 +13,8 @@ N-acetylisatin (0.5 g) and dichloromethane (2 mL) were combined in a round botto
 
 ## Ring opening reaction with glycine methyl ester
 
+![](Project2.png)
+
 #### Reagent table
 
 | Reagent                            | Molecular weight (g/mol) | Amount   | Density | Mole        | Remarks |
