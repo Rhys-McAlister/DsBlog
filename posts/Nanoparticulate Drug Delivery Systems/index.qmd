@@ -28,7 +28,7 @@ Nanoparticles have been constructed from various materials and the four major co
 
 # Biodistribution of nanoparticles
 
-Nanoparticles can be administered using various different routes, however the preeminent manner is intravenous administration currently. The route of administration plays a large role in determining the biodistribution of a nanoparticle and specific characteristics of the particle can be tuned in order to have further control over the specific site of deposition for a given particle. When nanoparticles are inhaled, there is significant accumulation in the lung tissue, however the diameter of the nanoparticle can critically determine the specific site the particles will accumulate. @fig-deposition demonstrates that particles (0.001-0.01 $\mu$m) can be seen to accumulate significantly in the extra thoracic region whereas relatively larger particles begin to accumulate more significantly in the intrathoracic region[@geiser2010].
+Nanoparticles can be administered using various different routes (see table 1), however the preeminent manner is intravenous administration currently. The route of administration plays a large role in determining the biodistribution of a nanoparticle and specific characteristics of the particle can be tuned in order to have further control over the specific site of deposition for a given particle. When nanoparticles are inhaled, there is significant accumulation in the lung tissue, however the diameter of the nanoparticle can critically determine the specific site the particles will accumulate. @fig-deposition demonstrates that particles (0.001-0.01 $\mu$m) can be seen to accumulate significantly in the extra thoracic region whereas relatively larger particles begin to accumulate more significantly in the intrathoracic region[@geiser2010].
 
 ![Particle deposition in the respiratory tract.](12989_2009_Article_100_Fig6_HTML.webp){#fig-deposition}
 
@@ -74,4 +74,6 @@ Nanoparticles can be administered using various different routes, however the pr
 |             |                                                    | -   Nasolacrimal drainage                           |
 +-------------+----------------------------------------------------+-----------------------------------------------------+
 
-: Comparison of routes of administration[@sadeghi2020]
+: Table 1. Comparison of routes of administration[@sadeghi2020]
+
+# From I.V administration to the cell
