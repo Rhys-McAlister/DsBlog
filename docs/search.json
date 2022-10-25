@@ -11,7 +11,7 @@
     "href": "index.html",
     "title": "DsBlog",
     "section": "",
-    "text": "A summary of a series of lectures on nanoparticulate drug delivery systems for cancer therapy.\n\n\n\n\n\n\n\n\n\nOct 22, 2022\n\n\nRhys McAlister\n\n\n\n\n\n\n  \n\n\n\n\n\n\n\n\n\n\nnews\n\n\nanalysis\n\n\n\n\n\n\n\n\n\n\n\nOct 16, 2022\n\n\nRhys McAlister\n\n\n\n\n\n\n  \n\n\n\n\n\n\n\n\n\n\nnews\n\n\nanalysis\n\n\n\n\n\n\n\n\n\n\n\nSep 19, 2022\n\n\nRhys McAlister\n\n\n\n\n\n\n  \n\n\n\n\n\n\n\n\n\n\nnews\n\n\nanalysis\n\n\n\n\n\n\n\n\n\n\n\nSep 19, 2022\n\n\nRhys McAlister\n\n\n\n\n\n\nNo matching items"
+    "text": "Rhys McAlister\n\n\n\n\n\n\n  \n\n\n\n\n\nA summary of a series of lectures on nanoparticulate drug delivery systems for cancer therapy.\n\n\n\n\n\n\n\n\n\nOct 22, 2022\n\n\nRhys McAlister\n\n\n\n\n\n\n  \n\n\n\n\n\n\n\n\n\n\nnews\n\n\nanalysis\n\n\n\n\n\n\n\n\n\n\n\nOct 16, 2022\n\n\nRhys McAlister\n\n\n\n\n\n\n  \n\n\n\n\n\n\n\n\n\n\nnews\n\n\nanalysis\n\n\n\n\n\n\n\n\n\n\n\nSep 19, 2022\n\n\nRhys McAlister\n\n\n\n\n\n\n  \n\n\n\n\n\n\n\n\n\n\nnews\n\n\nanalysis\n\n\n\n\n\n\n\n\n\n\n\nSep 19, 2022\n\n\nRhys McAlister\n\n\n\n\n\n\nNo matching items"
   },
   {
     "objectID": "posts/post-with-code/index.html",
@@ -137,6 +137,27 @@
     "href": "posts/Ring Opening Reaction of N-Acetylisatin/index.html#ring-opening-reaction-with-glycine-methyl-ester",
     "title": "Ring Opening Reaction of N-Acetylisatin",
     "section": "Ring opening reaction with glycine methyl ester",
-    "text": "Ring opening reaction with glycine methyl ester\n\n\nReagent table\n\n\n\n\n\n\n\n\n\n\n\nReagent\nMolecular weight (g/mol)\nAmount\nDensity\nMole\nRemarks\n\n\n\n\nGlycine methyl ester hydrochloride\n125.55\n0.286 g\n\n3.17 (mmol)\n\n\n\nAcetonitrile\n41.05\n7.5 mL\n\n\n\n\n\nTriethylamine\n101.19\n0.5 mL\n\n3.59 mmol\n\n\n\nN-acetylisatin\n189.17\n0.5 g\n\n2.64 mmol"
+    "text": "Ring opening reaction with glycine methyl ester\nA solution of glycine methyl ester hydrochloride (0.286 g, 3.17 mmol), acetonitrile (7.5 mL) was prepared and stirred before triethylamine (0.5 mL, 3.59 mmol) was added dropwise to the solution. To this solution, N-acetylisatin (0.5 g, 264 mmol) was then added and the reaction was left to run under vacuum whilst stirring. The reaction progress was monitored via thin layer chromatography and once complete the reaction mixed was evaporated to dryness using a rotary evaporator.\n\n\n\n\n\nFigure 1: Ring opening reaction scheme"
+  },
+  {
+    "objectID": "posts/Ring Opening Reaction of N-Acetylisatin/index.html#synthesis-of-n-acetylisatin",
+    "href": "posts/Ring Opening Reaction of N-Acetylisatin/index.html#synthesis-of-n-acetylisatin",
+    "title": "Ring Opening Reaction of N-Acetylisatin",
+    "section": "Synthesis of N-Acetylisatin",
+    "text": "Synthesis of N-Acetylisatin\nA solution of Isatin (3.12 g, 20.4 mmol) and Acetic anhydride (15 mL, 0.159 mol) was prepared and refluxed for two hours and 15 minutes at 140 \\(^{\\circ}\\)C. The reaction mixture was then filtered and washed with hexane to yield the yellow crystalline product, N-acetylisatin (2.98 g, 74%).\n\n\n\n\n\nFigure 1: Synthesis of N-Acetylisatin"
+  },
+  {
+    "objectID": "posts/Ring Opening Reaction of N-Acetylisatin/index.html#esterification-of-glycine",
+    "href": "posts/Ring Opening Reaction of N-Acetylisatin/index.html#esterification-of-glycine",
+    "title": "Ring Opening Reaction of N-Acetylisatin",
+    "section": "Esterification of glycine",
+    "text": "Esterification of glycine\nA solution of glycine (1.124 g), TMSCl (10 mL) and MeOH (three equivalents) was prepared and kept in an air tight environment before being left to stir for three hours. After the reaction was complete (monitored via TLC), the reaction mixture was concentrated on a rotary evaporator to yield a white crystalline solid, glycine methyl ester (1.5 g)"
+  },
+  {
+    "objectID": "posts/Ring Opening Reaction of N-Acetylisatin/index.html#ring-opening-reaction-with-butylamine",
+    "href": "posts/Ring Opening Reaction of N-Acetylisatin/index.html#ring-opening-reaction-with-butylamine",
+    "title": "Ring Opening Reaction of N-Acetylisatin",
+    "section": "Ring opening reaction with butylamine",
+    "text": "Ring opening reaction with butylamine\n\nMethods\nN-acetylisatin (0.5 g) and dichloromethane (2 mL) were combined in a round bottom flask before the drop-wise addition of butylamine (0.26 mL, 2.64 mmol) whilst the reaction mixture was stirred. This reaction mixture was then refluxed for two hours and the reaction progress was monitored by TLC. Following this, the reaction mixture was allowed to cool to room temperature prior to being transferred to a separatory funnel for a liquid-liquid extraction with hydrochloric acid (15 mL, 2M). The organic dichloromethane layer was retained whilst the aqueous layer was discarded. This organic layer was washed with brine before another liquid-liquid extraction was performed. Once again, the organic layer was retained and magnesium sulfate was added to this aliquot and the mixture was then filtered. The solvent was then removed using a rotary evaporator. The product of this reaction was a fine yellow solid (0.4 g).\n\n\n\n\n\nFigure 2: Ring opening reaction with butylamine"
   }
 ]
