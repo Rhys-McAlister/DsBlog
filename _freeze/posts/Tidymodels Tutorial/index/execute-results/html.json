@@ -1,0 +1,16 @@
+{
+  "hash": "ba9cbf87ae13937d8262031e472ce62a",
+  "result": {
+    "markdown": "---\ntitle: \"Tidymodels in R\"\neditor: visual\nauthor: Rhys McAlister\nsubtitle: A record of my progress learning the Tidymodels library.\ndate: 2022/10/22\ntoc: true\ntoc-depth: 2\ntitle-block-banner: true\nbibliography: references.bib\n---\n\n\n[Tidymodels official tutorial set](https://www.tidymodels.org/start/models/).\n\n# Building a model\n\n\n::: {.cell}\n\n:::\n\n::: {.cell}\n\n:::\n\n::: {.cell}\n\n```{.r .cell-code}\nknitr::kable(head(urchins))\n```\n\n::: {.cell-output-display}\n|food_regime | initial_volume| width|\n|:-----------|--------------:|-----:|\n|Initial     |            3.5| 0.010|\n|Initial     |            5.0| 0.020|\n|Initial     |            8.0| 0.061|\n|Initial     |           10.0| 0.051|\n|Initial     |           13.0| 0.041|\n|Initial     |           13.0| 0.061|\n:::\n:::\n\n::: {.cell}\n\n```{.r .cell-code}\nggplot(urchins,\n       aes(x = initial_volume, \n           y = width, \n           group = food_regime, \n           col = food_regime)) + \n  geom_point() + \n  geom_smooth(method = lm, se = FALSE) +\n  scale_color_viridis_d(option = \"plasma\", end = .7)\n```\n\n::: {.cell-output .cell-output-stderr}\n```\n`geom_smooth()` using formula 'y ~ x'\n```\n:::\n\n::: {.cell-output-display}\n![](index_files/figure-html/unnamed-chunk-4-1.png){width=672}\n:::\n\n```{.r .cell-code}\n#> `geom_smooth()` using formula 'y ~ x'\n```\n:::\n",
+    "supporting": [
+      "index_files"
+    ],
+    "filters": [
+      "rmarkdown/pagebreak.lua"
+    ],
+    "includes": {},
+    "engineDependencies": {},
+    "preserve": {},
+    "postProcess": true
+  }
+}

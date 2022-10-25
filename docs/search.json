@@ -11,7 +11,7 @@
     "href": "index.html",
     "title": "DsBlog",
     "section": "",
-    "text": "Rhys McAlister\n\n\n\n\n\n\n  \n\n\n\n\n\nA summary of a series of lectures on nanoparticulate drug delivery systems for cancer therapy.\n\n\n\n\n\n\n\n\n\nOct 22, 2022\n\n\nRhys McAlister\n\n\n\n\n\n\n  \n\n\n\n\n\n\n\n\n\n\nnews\n\n\nanalysis\n\n\n\n\n\n\n\n\n\n\n\nOct 16, 2022\n\n\nRhys McAlister\n\n\n\n\n\n\n  \n\n\n\n\n\n\n\n\n\n\nnews\n\n\nanalysis\n\n\n\n\n\n\n\n\n\n\n\nSep 19, 2022\n\n\nRhys McAlister\n\n\n\n\n\n\n  \n\n\n\n\n\n\n\n\n\n\nnews\n\n\nanalysis\n\n\n\n\n\n\n\n\n\n\n\nSep 19, 2022\n\n\nRhys McAlister\n\n\n\n\n\n\nNo matching items"
+    "text": "Rhys McAlister\n\n\n\n\n\n\n  \n\n\n\n\n\nA summary of a series of lectures on nanoparticulate drug delivery systems for cancer therapy.\n\n\n\n\n\n\n\n\n\nOct 22, 2022\n\n\nRhys McAlister\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nA record of my progress learning the Tidymodels library.\n\n\n\n\n\n\n\n\n\nOct 22, 2022\n\n\nRhys McAlister\n\n\n\n\n\n\n  \n\n\n\n\n\n\n\n\n\n\nnews\n\n\nanalysis\n\n\n\n\n\n\n\n\n\n\n\nOct 16, 2022\n\n\nRhys McAlister\n\n\n\n\n\n\n  \n\n\n\n\n\n\n\n\n\n\nnews\n\n\nanalysis\n\n\n\n\n\n\n\n\n\n\n\nSep 19, 2022\n\n\nRhys McAlister\n\n\n\n\n\n\n  \n\n\n\n\n\n\n\n\n\n\nnews\n\n\nanalysis\n\n\n\n\n\n\n\n\n\n\n\nSep 19, 2022\n\n\nRhys McAlister\n\n\n\n\n\n\nNo matching items"
   },
   {
     "objectID": "posts/post-with-code/index.html",
@@ -109,7 +109,7 @@
     "href": "posts/Ring Opening Reaction of N-Acetylisatin/index.html",
     "title": "Ring Opening Reaction of N-Acetylisatin",
     "section": "",
-    "text": "This article describes a ring opening reaction of N-Acetylisatin with the amine pyrrolidine."
+    "text": "This article describes a four week project based on developing peptidomimetics."
   },
   {
     "objectID": "posts/Neuromatch deep learning lesson 1/index.html",
@@ -159,5 +159,12 @@
     "title": "Ring Opening Reaction of N-Acetylisatin",
     "section": "Ring opening reaction with butylamine",
     "text": "Ring opening reaction with butylamine\n\nMethods\nN-acetylisatin (0.5 g) and dichloromethane (2 mL) were combined in a round bottom flask before the drop-wise addition of butylamine (0.26 mL, 2.64 mmol) whilst the reaction mixture was stirred. This reaction mixture was then refluxed for two hours and the reaction progress was monitored by TLC. Following this, the reaction mixture was allowed to cool to room temperature prior to being transferred to a separatory funnel for a liquid-liquid extraction with hydrochloric acid (15 mL, 2M). The organic dichloromethane layer was retained whilst the aqueous layer was discarded. This organic layer was washed with brine before another liquid-liquid extraction was performed. Once again, the organic layer was retained and magnesium sulfate was added to this aliquot and the mixture was then filtered. The solvent was then removed using a rotary evaporator. The product of this reaction was a fine yellow solid (0.4 g).\n\n\n\n\n\nFigure 2: Ring opening reaction with butylamine"
+  },
+  {
+    "objectID": "posts/Tidymodels Tutorial/index.html",
+    "href": "posts/Tidymodels Tutorial/index.html",
+    "title": "Tidymodels in R",
+    "section": "",
+    "text": "Building a model\n\n\n\n\n\n\n\nknitr::kable(head(urchins))\n\n\n\n\nfood_regime\ninitial_volume\nwidth\n\n\n\n\nInitial\n3.5\n0.010\n\n\nInitial\n5.0\n0.020\n\n\nInitial\n8.0\n0.061\n\n\nInitial\n10.0\n0.051\n\n\nInitial\n13.0\n0.041\n\n\nInitial\n13.0\n0.061\n\n\n\n\n\n\nggplot(urchins,\n       aes(x = initial_volume, \n           y = width, \n           group = food_regime, \n           col = food_regime)) + \n  geom_point() + \n  geom_smooth(method = lm, se = FALSE) +\n  scale_color_viridis_d(option = \"plasma\", end = .7)\n\n`geom_smooth()` using formula 'y ~ x'\n\n\n\n\n#> `geom_smooth()` using formula 'y ~ x'"
   }
 ]
