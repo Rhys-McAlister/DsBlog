@@ -6,7 +6,7 @@ toc: true
 toc-depth: 2
 ---
 
-This article describes a ring opening reaction of N-Acetylisatin with the amine pyrrolidine.
+This article describes a four week project based on developing peptidomimetics.
 
 ## Synthesis of N-Acetylisatin
 
