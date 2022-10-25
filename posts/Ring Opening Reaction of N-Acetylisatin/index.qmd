@@ -1,6 +1,7 @@
 ---
 title: "Ring Opening Reaction of N-Acetylisatin"
 editor: visual
+author: Rhys McAlister
 toc: true
 toc-depth: 2
 ---
@@ -13,13 +14,15 @@ N-acetylisatin (0.5 g) and dichloromethane (2 mL) were combined in a round botto
 
 ## Ring opening reaction with glycine methyl ester
 
-![](Project2.png)
+A solution of glycine methyl ester hydrochloride (0.286 g, 3.17 mmol), acetonitrile (7.5 mL) was prepared and stirred before triethylamine (0.5 mL, 3.59 mmol) was added dropwise to the solution. To this solution, N-acetylisatin (0.5 g, 264 mmol) was then added and the reaction was left to run under vacuum whilst stirring.
+
+![Figure 1: Ring opening reaction scheme](Project2.png)
 
 #### Reagent table
 
-| Reagent                            | Molecular weight (g/mol) | Amount   | Density | Mole        | Remarks |
-|------------------------------------|--------------------------|----------|---------|-------------|---------|
-| Glycine methyl ester hydrochloride | 125.55                   | 0.286 g  |         | 3.17 (mmol) |         |
-| Acetonitrile                       | 41.05                    | 7.5 mL   |         |             |         |
-| Triethylamine                      | 101.19                   | 0.5 mL   |         | 3.59 mmol   |         |
-| N-acetylisatin                     | 189.17                   | 0.5 g    |         | 2.64 mmol   |         |
+| Reagent                            | Molecular weight (g/mol) | Amount  | Density | Mole        | Remarks |
+|------------------|-----------|-----------|-----------|-----------|-----------|
+| Glycine methyl ester hydrochloride | 125.55                   | 0.286 g |         | 3.17 (mmol) |         |
+| Acetonitrile                       | 41.05                    | 7.5 mL  |         |             |         |
+| Triethylamine                      | 101.19                   | 0.5 mL  |         | 3.59 mmol   |         |
+| N-acetylisatin                     | 189.17                   | 0.5 g   |         | 2.64 mmol   |         |
