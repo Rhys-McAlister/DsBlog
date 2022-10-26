@@ -1,0 +1,406 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
+
+<meta charset="utf-8">
+<meta name="generator" content="quarto-1.0.35">
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+
+<meta name="author" content="Rhys McAlister">
+<meta name="dcterms.date" content="2022-10-22">
+
+<title>Working notes - Nanoparticulate Drug Delivery Systems</title>
+<style>
+code{white-space: pre-wrap;}
+span.smallcaps{font-variant: small-caps;}
+span.underline{text-decoration: underline;}
+div.column{display: inline-block; vertical-align: top; width: 50%;}
+div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+ul.task-list{list-style: none;}
+div.csl-bib-body { }
+div.csl-entry {
+  clear: both;
+}
+.hanging div.csl-entry {
+  margin-left:2em;
+  text-indent:-2em;
+}
+div.csl-left-margin {
+  min-width:2em;
+  float:left;
+}
+div.csl-right-inline {
+  margin-left:2em;
+  padding-left:1em;
+}
+div.csl-indent {
+  margin-left: 2em;
+}
+</style>
+
+
+<script src="../../site_libs/quarto-nav/quarto-nav.js"></script>
+<script src="../../site_libs/quarto-nav/headroom.min.js"></script>
+<script src="../../site_libs/clipboard/clipboard.min.js"></script>
+<script src="../../site_libs/quarto-search/autocomplete.umd.js"></script>
+<script src="../../site_libs/quarto-search/fuse.min.js"></script>
+<script src="../../site_libs/quarto-search/quarto-search.js"></script>
+<meta name="quarto:offset" content="../../">
+<script src="../../site_libs/quarto-html/quarto.js"></script>
+<script src="../../site_libs/quarto-html/popper.min.js"></script>
+<script src="../../site_libs/quarto-html/tippy.umd.min.js"></script>
+<script src="../../site_libs/quarto-html/anchor.min.js"></script>
+<link href="../../site_libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="../../site_libs/quarto-html/quarto-syntax-highlighting.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<script src="../../site_libs/bootstrap/bootstrap.min.js"></script>
+<link href="../../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
+<link href="../../site_libs/bootstrap/bootstrap.min.css" rel="stylesheet" id="quarto-bootstrap" data-mode="light">
+<script id="quarto-search-options" type="application/json">{
+  "location": "navbar",
+  "copy-button": false,
+  "collapse-after": 3,
+  "panel-placement": "end",
+  "type": "overlay",
+  "limit": 20,
+  "language": {
+    "search-no-results-text": "No results",
+    "search-matching-documents-text": "matching documents",
+    "search-copy-link-title": "Copy link to search",
+    "search-hide-matches-text": "Hide additional matches",
+    "search-more-match-text": "more match in this document",
+    "search-more-matches-text": "more matches in this document",
+    "search-clear-button-title": "Clear",
+    "search-detached-cancel-button-title": "Cancel",
+    "search-submit-button-title": "Submit"
+  }
+}</script>
+<script async="" src="https://www.googletagmanager.com/gtag/js?id=G-2Y180Y6F2P"></script>
+
+<script type="text/javascript">
+
+window.dataLayer = window.dataLayer || [];
+function gtag(){dataLayer.push(arguments);}
+gtag('js', new Date());
+gtag('config', 'G-2Y180Y6F2P', { 'anonymize_ip': true});
+</script>
+
+  <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js" type="text/javascript"></script>
+
+<link rel="stylesheet" href="../../styles.css">
+</head>
+
+<body class="nav-fixed">
+
+<div id="quarto-search-results"></div>
+  <header id="quarto-header" class="headroom fixed-top">
+    <nav class="navbar navbar-expand-lg navbar-dark ">
+      <div class="navbar-container container-fluid">
+      <a class="navbar-brand" href="../../index.html">
+    <span class="navbar-title">Working notes</span>
+  </a>
+          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse" aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
+  <span class="navbar-toggler-icon"></span>
+</button>
+          <div class="collapse navbar-collapse" id="navbarCollapse">
+            <ul class="navbar-nav navbar-nav-scroll ms-auto">
+  <li class="nav-item">
+    <a class="nav-link" href="../../about.html">About</a>
+  </li>  
+  <li class="nav-item compact">
+    <a class="nav-link" href="https://github.com/Rhys-McAlister"><i class="bi bi-github" role="img">
+</i> 
+ </a>
+  </li>  
+  <li class="nav-item compact">
+    <a class="nav-link" href="https://twitter.com/mcalister_rhys"><i class="bi bi-twitter" role="img">
+</i> 
+ </a>
+  </li>  
+</ul>
+              <div id="quarto-search" class="" title="Search"></div>
+          </div> <!-- /navcollapse -->
+      </div> <!-- /container-fluid -->
+    </nav>
+</header>
+<!-- content -->
+<header id="title-block-header" class="quarto-title-block default page-columns page-full">
+  <div class="quarto-title-banner page-columns page-full">
+    <div class="quarto-title column-body">
+      <h1 class="title">Nanoparticulate Drug Delivery Systems</h1>
+            <p class="subtitle lead">A summary of a series of lectures on nanoparticulate drug delivery systems for cancer therapy.</p>
+                      </div>
+  </div>
+    
+  
+  <div class="quarto-title-meta">
+
+      <div>
+      <div class="quarto-title-meta-heading">Author</div>
+      <div class="quarto-title-meta-contents">
+               <p>Rhys McAlister </p>
+            </div>
+    </div>
+      
+      <div>
+      <div class="quarto-title-meta-heading">Published</div>
+      <div class="quarto-title-meta-contents">
+        <p class="date">October 22, 2022</p>
+      </div>
+    </div>
+      
+    </div>
+    
+  
+  </header><div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article page-navbar">
+<!-- sidebar -->
+<!-- margin-sidebar -->
+    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
+        <nav id="TOC" role="doc-toc">
+    <h2 id="toc-title">On this page</h2>
+   
+  <ul>
+  <li><a href="#why-are-nanoparticles-used-in-medicine" id="toc-why-are-nanoparticles-used-in-medicine" class="nav-link active" data-scroll-target="#why-are-nanoparticles-used-in-medicine">Why are nanoparticles used in medicine?</a></li>
+  <li><a href="#biodistribution-of-nanoparticles" id="toc-biodistribution-of-nanoparticles" class="nav-link" data-scroll-target="#biodistribution-of-nanoparticles">Biodistribution of nanoparticles</a></li>
+  <li><a href="#from-i.v-administration-to-the-cell" id="toc-from-i.v-administration-to-the-cell" class="nav-link" data-scroll-target="#from-i.v-administration-to-the-cell">From I.V administration to the cell</a></li>
+  </ul>
+</nav>
+    </div>
+<!-- main -->
+<main class="content quarto-banner-title-block page-columns page-full" id="quarto-document-content">
+
+
+
+
+<p>Work in progress document.</p>
+<section id="why-are-nanoparticles-used-in-medicine" class="level1 page-columns page-full">
+<h1>Why are nanoparticles used in medicine?</h1>
+<p>Nanoparticles used for medicinal purposes are referred to as nanomedicines and these agents have multi-dimensional usage as diagnostic tools or vehicles used for the targeted delivery of selected therapeutic compounds<span class="citation" data-cites="sadeghi2020">(<a href="#ref-sadeghi2020" role="doc-biblioref">Sadeghi et al. 2020</a>)</span>. Nanoparticles are defined as being between 1-100 nanometres (nm) in diameter and these particles have already been used in the delivery of drugs such as vaccines, nucleotides and recombinant proteins<span class="citation" data-cites="sadeghi2020">(<a href="#ref-sadeghi2020" role="doc-biblioref">Sadeghi et al. 2020</a>)</span>. These nanoparticle dependent delivery strategies exhibit improvements in rate of absorption, reduction in elimination kinetics and controlled release<span class="citation" data-cites="sadeghi2020">(<a href="#ref-sadeghi2020" role="doc-biblioref">Sadeghi et al. 2020</a>)</span>.</p>
+<p>Traditional drug administration normally involves the oral and intravenous delivery of drug molecules. These drug particles travel in an unguided manner and this results in a systemic distribution throughout the body<span class="citation" data-cites="lu2021">(<a href="#ref-lu2021" role="doc-biblioref">Lu et al. 2021</a>)</span>. It is instead desirable to have the drug molecules primarily be located at the desired site of action as this systemic distribution results in low drug efficacy and enhances the potential for off target effects<span class="citation" data-cites="lu2021">(<a href="#ref-lu2021" role="doc-biblioref">Lu et al. 2021</a>)</span>.</p>
+<p>An important consideration within pharmacological treatments is how to best maintain the concentration of the drug at the site of action. The optimal concentration range is termed as the therapeutic window and this window is a range in which the effectiveness of the drug is maintained without reaching toxic levels. The use of nanoparticle delivery systems allows for the pharmacokinetics and biodistribution of a drug to be dependent upon the characteristics of a given nanoparticle and not upon the drug molecule.</p>
+<p>Nanoparticles have been constructed from various materials and the four major compositional categories are: organic, inorganic, carbon-based and composite-based<span class="citation" data-cites="jeevanandam2018">(<a href="#ref-jeevanandam2018" role="doc-biblioref">Jeevanandam et al. 2018</a>)</span>. The material choice in addition to the size and shape of the nanoparticle are key in determining its biological outcomes<span class="citation" data-cites="jeevanandam2018">(<a href="#ref-jeevanandam2018" role="doc-biblioref">Jeevanandam et al. 2018</a>)</span>. Additional considerations are the particles surface bioactivity and functionality.</p>
+
+<div class="no-row-height column-margin column-container"><div class="">
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="cat-image.jpg" class="img-fluid figure-img"></p>
+<p></p><figcaption class="figure-caption">Nanoparticle composition categories <span class="citation" data-cites="sadeghi2020">(<a href="#ref-sadeghi2020" role="doc-biblioref">Sadeghi et al. 2020</a>)</span></figcaption><p></p>
+</figure>
+</div>
+</div></div></section>
+<section id="biodistribution-of-nanoparticles" class="level1">
+<h1>Biodistribution of nanoparticles</h1>
+<p>Nanoparticles can be administered using various different routes (see table 1), however the preeminent manner is intravenous administration currently. The route of administration plays a large role in determining the biodistribution of a nanoparticle and specific characteristics of the particle can be tuned in order to have further control over the specific site of deposition for a given particle. When nanoparticles are inhaled, there is significant accumulation in the lung tissue, however the diameter of the nanoparticle can critically determine the specific site the particles will accumulate. <a href="#fig-deposition">Figure&nbsp;1</a> demonstrates that particles (0.001-0.01 <span class="math inline">\(\mu\)</span>m) can be seen to accumulate significantly in the extra thoracic region whereas relatively larger particles begin to accumulate more significantly in the intrathoracic region<span class="citation" data-cites="geiser2010">(<a href="#ref-geiser2010" role="doc-biblioref">Geiser and Kreyling 2010</a>)</span>.</p>
+<div id="fig-deposition" class="quarto-figure quarto-figure-center anchored">
+<figure class="figure">
+<p><img src="12989_2009_Article_100_Fig6_HTML.webp" class="img-fluid figure-img"></p>
+<p></p><figcaption class="figure-caption">Figure 1: Particle deposition in the respiratory tract.</figcaption><p></p>
+</figure>
+</div>
+<table class="table">
+<caption>Table 1. Comparison of routes of administration<span class="citation" data-cites="sadeghi2020">(<a href="#ref-sadeghi2020" role="doc-biblioref">Sadeghi et al. 2020</a>)</span></caption>
+<colgroup>
+<col style="width: 11%">
+<col style="width: 43%">
+<col style="width: 44%">
+</colgroup>
+<thead>
+<tr class="header">
+<th>Route</th>
+<th>Advantages</th>
+<th>Disadvantages/Challenges for nanoparticles</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>Oral</td>
+<td><ul>
+<li><p>Patient compliance</p></li>
+<li><p>Fewer infections/contamination</p></li>
+<li><p>Dosage flexibility</p></li>
+<li><p>Extensive drug absorption area in the GI tract</p></li>
+</ul></td>
+<td><ul>
+<li><p>Acidic pH of the stomach</p></li>
+<li><p>Presence of proteolytic enzymes in the GI tract</p></li>
+<li><p>Low permeation across the intestinal epithelium</p></li>
+</ul></td>
+</tr>
+<tr class="even">
+<td>Nasal</td>
+<td><ul>
+<li><p>Large surface area particularly in the lungs</p></li>
+<li><p>Highly vascularised mucosa</p></li>
+<li><p>Porous endothelial membrane</p></li>
+<li><p>Negligible enzymatic activity</p></li>
+<li><p>Bypasses first-pass metabolism</p></li>
+</ul></td>
+<td><ul>
+<li><p>Size limited through the delivery device</p></li>
+<li><p>Presence of nasal clearance</p></li>
+<li><p>Proteolytic instability</p></li>
+</ul></td>
+</tr>
+<tr class="odd">
+<td>Pulmonary</td>
+<td><ul>
+<li><p>Large absorption surface area</p></li>
+<li><p>Significant vascularisation</p></li>
+<li><p>Narrow alveolar epithelial membrane</p></li>
+<li><p>Negligible enzymatic activity</p></li>
+</ul></td>
+<td><ul>
+<li><p>Can have an irritant effect on the airways</p></li>
+<li><p>Protein and peptide degradation</p></li>
+<li><p>Low retention of drug within the lungs</p></li>
+</ul></td>
+</tr>
+<tr class="even">
+<td>Intravenous</td>
+<td><ul>
+<li><p>Systemic delivery</p></li>
+<li><p>Systemic action</p></li>
+</ul></td>
+<td><ul>
+<li><p>Invasive</p></li>
+<li><p>Heptatotoxicity</p></li>
+<li><p>Systemic toxicity</p></li>
+</ul></td>
+</tr>
+<tr class="odd">
+<td>Ocular</td>
+<td><ul>
+<li><p>Ease of administration</p></li>
+<li><p>Circumvents first-pass metabolism</p></li>
+</ul></td>
+<td><ul>
+<li><p>Poor permeability</p></li>
+<li><p>Enzymatic degradation</p></li>
+<li><p>Nasolacrimal drainage</p></li>
+</ul></td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="from-i.v-administration-to-the-cell" class="level1">
+
+
+
+
+</section>
+
+<div id="quarto-appendix" class="default"><section class="quarto-appendix-contents" role="doc-bibliography"><h2 class="anchored quarto-appendix-heading">From I.V administration to the cell</h2><div id="refs" class="references csl-bib-body hanging-indent" role="doc-bibliography">
+<div id="ref-geiser2010" class="csl-entry" role="doc-biblioentry">
+Geiser, Marianne, and Wolfgang G Kreyling. 2010. <span>“Deposition and Biokinetics of Inhaled Nanoparticles.”</span> <em>Particle and Fibre Toxicology</em> 7 (1): 2. <a href="https://doi.org/10.1186/1743-8977-7-2">https://doi.org/10.1186/1743-8977-7-2</a>.
+</div>
+<div id="ref-jeevanandam2018" class="csl-entry" role="doc-biblioentry">
+Jeevanandam, Jaison, Ahmed Barhoum, Yen S Chan, Alain Dufresne, and Michael K Danquah. 2018. <span>“Review on Nanoparticles and Nanostructured Materials: History, Sources, Toxicity and Regulations.”</span> <em>Beilstein Journal of Nanotechnology</em> 9 (April): 1050–74. <a href="https://doi.org/10.3762/bjnano.9.98">https://doi.org/10.3762/bjnano.9.98</a>.
+</div>
+<div id="ref-lu2021" class="csl-entry" role="doc-biblioentry">
+Lu, Weijia, Jing Yao, Xiao Zhu, and Yi Qi. 2021. <span>“Nanomedicines: Redefining Traditional Medicine.”</span> <em>Biomedicine &amp; Pharmacotherapy</em> 134 (February): 111103. <a href="https://doi.org/10.1016/j.biopha.2020.111103">https://doi.org/10.1016/j.biopha.2020.111103</a>.
+</div>
+<div id="ref-sadeghi2020" class="csl-entry" role="doc-biblioentry">
+Sadeghi, Samira, Wai Kit Lee, Shik Nie Kong, Annanya Shetty, and Chester Lee Drum. 2020. <span>“Oral Administration of Protein Nanoparticles: An Emerging Route to Disease Treatment.”</span> <em>Pharmacological Research</em> 158 (August): 104685. <a href="https://doi.org/10.1016/j.phrs.2020.104685">https://doi.org/10.1016/j.phrs.2020.104685</a>.
+</div>
+</div></section></div></main> <!-- /main -->
+<script id="quarto-html-after-body" type="application/javascript">
+window.document.addEventListener("DOMContentLoaded", function (event) {
+  const toggleBodyColorMode = (bsSheetEl) => {
+    const mode = bsSheetEl.getAttribute("data-mode");
+    const bodyEl = window.document.querySelector("body");
+    if (mode === "dark") {
+      bodyEl.classList.add("quarto-dark");
+      bodyEl.classList.remove("quarto-light");
+    } else {
+      bodyEl.classList.add("quarto-light");
+      bodyEl.classList.remove("quarto-dark");
+    }
+  }
+  const toggleBodyColorPrimary = () => {
+    const bsSheetEl = window.document.querySelector("link#quarto-bootstrap");
+    if (bsSheetEl) {
+      toggleBodyColorMode(bsSheetEl);
+    }
+  }
+  toggleBodyColorPrimary();  
+  const icon = "";
+  const anchorJS = new window.AnchorJS();
+  anchorJS.options = {
+    placement: 'right',
+    icon: icon
+  };
+  anchorJS.add('.anchored');
+  const clipboard = new window.ClipboardJS('.code-copy-button', {
+    target: function(trigger) {
+      return trigger.previousElementSibling;
+    }
+  });
+  clipboard.on('success', function(e) {
+    // button target
+    const button = e.trigger;
+    // don't keep focus
+    button.blur();
+    // flash "checked"
+    button.classList.add('code-copy-button-checked');
+    var currentTitle = button.getAttribute("title");
+    button.setAttribute("title", "Copied!");
+    setTimeout(function() {
+      button.setAttribute("title", currentTitle);
+      button.classList.remove('code-copy-button-checked');
+    }, 1000);
+    // clear code selection
+    e.clearSelection();
+  });
+  function tippyHover(el, contentFn) {
+    const config = {
+      allowHTML: true,
+      content: contentFn,
+      maxWidth: 500,
+      delay: 100,
+      arrow: false,
+      appendTo: function(el) {
+          return el.parentElement;
+      },
+      interactive: true,
+      interactiveBorder: 10,
+      theme: 'quarto',
+      placement: 'bottom-start'
+    };
+    window.tippy(el, config); 
+  }
+  const noterefs = window.document.querySelectorAll('a[role="doc-noteref"]');
+  for (var i=0; i<noterefs.length; i++) {
+    const ref = noterefs[i];
+    tippyHover(ref, function() {
+      let href = ref.getAttribute('href');
+      try { href = new URL(href).hash; } catch {}
+      const id = href.replace(/^#\/?/, "");
+      const note = window.document.getElementById(id);
+      return note.innerHTML;
+    });
+  }
+  var bibliorefs = window.document.querySelectorAll('a[role="doc-biblioref"]');
+  for (var i=0; i<bibliorefs.length; i++) {
+    const ref = bibliorefs[i];
+    const cites = ref.parentNode.getAttribute('data-cites').split(' ');
+    tippyHover(ref, function() {
+      var popup = window.document.createElement('div');
+      cites.forEach(function(cite) {
+        var citeDiv = window.document.createElement('div');
+        citeDiv.classList.add('hanging-indent');
+        citeDiv.classList.add('csl-entry');
+        var biblioDiv = window.document.getElementById('ref-' + cite);
+        if (biblioDiv) {
+          citeDiv.innerHTML = biblioDiv.innerHTML;
+        }
+        popup.appendChild(citeDiv);
+      });
+      return popup.innerHTML;
+    });
+  }
+});
+</script>
+</div> <!-- /content -->
+
+
+
+</body></html>

@@ -1,0 +1,12 @@
+---
+title: "Untitled"
+format:
+  pdf:
+    include-in-header:
+     - packages.sty
+editor: visual
+---
+
+# sgergsegseg
+
+sgergses
