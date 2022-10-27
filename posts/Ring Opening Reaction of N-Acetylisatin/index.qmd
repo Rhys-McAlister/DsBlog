@@ -4,6 +4,7 @@ editor: visual
 author: Rhys McAlister
 toc: true
 toc-depth: 2
+bibliography: references.bib
 ---
 
 This article describes a four week project based on developing peptidomimetics.
@@ -15,6 +16,8 @@ A solution of Isatin (3.12 g, 20.4 mmol) and Acetic anhydride (15 mL, 0.159 mol)
 ::: column-margin
 ![Figure 1: Synthesis of N-Acetylisatin](images/synthesis-n-acylisatin.png)
 :::
+
+An alternative synthetic procedure for the synthesis of N-acetylisatin from isatin where acetic anhydride is not used is provided by Chen, Qifa et al[@chen2021]. A solution of isatin (2.94 g), alkyl bromide (2.40 g), K2CO3 (4.14g, 30 mmol) in MeCN (40 mL) is to be prepared. This mixture is then stirred at reflux for eight hours and when the reaction is complete the solvent is evaporated away under vacuum. The crude product can then be purified using column chromatography on silica gel with an ethyl acetate and petroleum ether eluent system.
 
 ## Esterification of glycine
 
