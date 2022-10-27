@@ -38,7 +38,7 @@ N-acetylisatin (0.5 g) and dichloromethane (2 mL) were combined in a round botto
 A solution of glycine methyl ester hydrochloride (0.286 g, 3.17 mmol), acetonitrile (7.5 mL) was prepared and stirred before triethylamine (0.5 mL, 3.59 mmol) was added dropwise to the solution. To this solution, N-acetylisatin (0.5 g, 264 mmol) was then added and the reaction was left to run under vacuum whilst stirring. The reaction progress was monitored via thin layer chromatography and once complete the reaction mixed was evaporated to dryness using a rotary evaporator.
 
 ::: column-margin
-![Figure 1: Ring opening reaction scheme](Project2.png)
+![Figure 3: Ring opening reaction scheme](Project2.png)
 :::
 
 #### 
