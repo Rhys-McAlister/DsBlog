@@ -2,6 +2,9 @@
 title: "Ring Opening Reaction of N-Acetylisatin"
 editor: visual
 author: Rhys McAlister
+format: pdf
+date: 2022/10/29
+abstract: abstract
 toc: true
 toc-depth: 2
 bibliography: references.bib
